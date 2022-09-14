@@ -35,6 +35,8 @@ namespace Lesson_5_3
             CurrentAgent = agents[0];
         }
 
+        #region Button Clicked
+
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             if (lbxAgents.SelectedIndex > 0)
@@ -55,6 +57,7 @@ namespace Lesson_5_3
             tbxId.Focus();
         }
 
+        #endregion
 
         #region Propeties
 
@@ -99,47 +102,6 @@ namespace Lesson_5_3
         }
 
         #endregion
-
-
-
-
-        //#region Propeties
-
-        //public Agent CurrentAgent : NotifyPropertyChanged
-        //{
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
-        //Agent currentAgent
-        //{
-        //    get { return currentAgent; }
-        //    set
-        //    {
-        //        if (currentAgent != value)
-        //        {
-        //            currentAgent = value;
-        //            NotifyPropertyChanged();
-        //        }
-        //    }
-
-        //}
-
-        //public ObservableCollection<Agent> Agents
-        //{
-        //    get { return agents; }
-        //}
-        //#endregion
-
-        //#region Methods
-        //public void AddNewAgent()
-        //{
-        //    agents.Add(new Agent());
-        //}
-
-        //#endregion
 
 
 
