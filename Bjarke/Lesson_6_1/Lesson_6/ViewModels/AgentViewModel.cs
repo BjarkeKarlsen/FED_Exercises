@@ -4,23 +4,24 @@ using System.Collections.ObjectModel;
 using Prism.Commands;
 using Prism.Mvvm;
 using System.Windows.Media.Animation;
+using System.Windows;
 using System.Windows.Threading;
 using Lesson_6.Models;
-using Clock = Lesson_6.Model.Clock;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Clock = Lesson_6.Models.Clock;
 
 
 namespace Lesson_6.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        
-        private ObservableCollection<Agent> __agents;
+
+        private ObservableCollection<Agent> _agents = new ObservableCollection<Agent>();
         private DispatcherTimer timer = new DispatcherTimer();
 
         public MainWindowViewModel()
         {
-            
-            _agents = new ObservableCollection<Agent>();
             _agents.Add(new Agent("001", "Dr Drake", "Assassionation", "Goldfinger"));
             _agents.Add(new Agent("007", "James Bond", "Assassionation", "UpperVolta"));
 
@@ -31,34 +32,30 @@ namespace Lesson_6.ViewModels
             timer.Start();
 
         }
+
         #region Propeties
 
+        private Agent? _currentAgent = null;
 
-
-        private Agent _currentAgent = null;
-        
-
-        public Agent CurrentAgent {
+        public Agent? CurrentAgent
+        {
             get { return _currentAgent; }
-            set
-            {
-                SetProperty(ref _currentAgent, value);
-            }
+            set { SetProperty(ref _currentAgent, value); }
 
+        }
+        public ObservableCollection<Agent> Agents
+        {
+            get { return _agents; }
+            set { SetProperty(ref _agents, value); }
         }
 
         private int _currentIndex;
-
         public int CurrentIndex
         {
             get { return _currentIndex; }
             set { SetProperty(ref _currentIndex, value); }
         }
 
-        public ObservableCollection<Agent> _agents {
-            get { return _agents; }
-            set { SetProperty(ref __agents, value); }
-        }
 
         private Clock _clock = new Clock();
         public Clock Clock
@@ -69,25 +66,24 @@ namespace Lesson_6.ViewModels
 
         #endregion
 
+
         #region Methods
 
-        void Timer_Tick(object? sender, EventArgs e) 
+        void Timer_Tick(object? sender, EventArgs e)
         {
             _clock.Update();
         }
 
-        public void AddNewAgent() {
-            _agents.Add(new Agent());
-        }
 
         #endregion
 
         #region Commands
 
-        private DelegateCommand? _PreviousCommand;
 
-        public DelegateCommand PreviousCommand => _PreviousCommand ??
-                                                 (_PreviousCommand = new DelegateCommand(ExecutePreviousCommand,
+        private DelegateCommand? _previousCommand;
+
+        public DelegateCommand PreviousCommand => _previousCommand ??
+                                                 (_previousCommand = new DelegateCommand(ExecutePreviousCommand,
                                                      CanExecutePreviousCommand))
                                                  .ObservesProperty(() => CurrentIndex);
 
@@ -103,16 +99,13 @@ namespace Lesson_6.ViewModels
             return false;
         }
 
-        private DelegateCommand _closeCommand;
-        public DelegateCommand CloseCommand => _closeCommand ?? 
-                                               (_closeCommand = new DelegateCommand(ExecuteCloseCommand));
 
         void ExecuteCloseCommand()
         {
             Application.Current.MainWindow.Close();
         }
 
-        private DelegateCommand _nextCommand;
+        private DelegateCommand? _nextCommand;
         public DelegateCommand NextCommand => _nextCommand ??
                                               (_nextCommand = new DelegateCommand(ExecuteNextCommand,
                                                   CanExecuteNextCommand))
@@ -126,11 +119,11 @@ namespace Lesson_6.ViewModels
 
         bool CanExecuteNextCommand()
         {
-            if (CurrentIndex < _agents.Count -1 ) return true;
+            if (CurrentIndex < _agents.Count - 1) return true;
             return false;
         }
 
-        private DelegateCommand _addCommand;
+        private DelegateCommand? _addCommand;
 
         public DelegateCommand AddCommand => _addCommand ??
                                              (_addCommand = new DelegateCommand(ExecuteAddCommand))
@@ -142,15 +135,16 @@ namespace Lesson_6.ViewModels
             CurrentIndex = _agents.Count - 1;
         }
 
-        private DelegateCommand _delegateCommand;
+        private DelegateCommand? _delegateCommand;
 
         public DelegateCommand DelegateCommand => _delegateCommand ??
-                                                  (_delegateCommand = new DelegateCommand(DeleteAgent,
-                                                      CanExecuteDeleteCommand)).ObservesProperty(() => CurrentIndex);
+                                                   (_delegateCommand = new DelegateCommand(DeleteAgent,
+                                                       CanExecuteDeleteCommand)).ObservesProperty(() => CurrentIndex);
 
         private void DeleteAgent()
         {
-            _agents.Remove(CurrentAgent);
+            if (CurrentAgent != null)
+                _agents.Remove(CurrentAgent);
         }
 
         bool CanExecuteDeleteCommand()
@@ -159,6 +153,9 @@ namespace Lesson_6.ViewModels
             return false;
         }
 
+        private DelegateCommand? _closeCommand;
+        public DelegateCommand CloseCommand => _closeCommand ??
+                                               (_closeCommand = new DelegateCommand(ExecuteCloseCommand));
 
 
         #endregion

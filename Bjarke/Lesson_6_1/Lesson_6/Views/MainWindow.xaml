@@ -10,13 +10,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <Window.DataContext>
-        <viewModel:MainWindowViewModel></viewModel:MainWindowViewModel>
-    </Window.DataContext>
+
     <DockPanel>
-        <Menu DockPanel.Dock="Top" Name="=mainMenu">
+        <Menu DockPanel.Dock="Top" Name="mainMenu">
             <MenuItem Header="_File">
-                <MenuItem Header ="_Exit" Command="{Binding CloseCommand}"></MenuItem>
+                <MenuItem Header ="E_xit" Command="{Binding CloseCommand}"></MenuItem>
                 <MenuItem Header="_Agents">
                     <MenuItem Header="_Previous" Command="{Binding PreviousCommand}"></MenuItem>
                     <MenuItem Header="_Next" Command="{Binding NextCommand}"></MenuItem>
@@ -47,13 +45,13 @@
 
             <Button Height="auto"
                     ToolTip="Add new agent"
-                    Content ="+;"
+                    Content ="+"
                     Command="{Binding AddCommand}"
             />
 
             <Button Height="auto"
                     ToolTip="Delete agent"
-                    Content ="-;"
+                    Content ="-"
                     Command="{Binding DeleteCommand}"
             />
         </ToolBar>
@@ -84,7 +82,7 @@
             <TextBox Name="tbxCodeName" Text="{Binding Path=CurrentAgent.CodeName}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="1" Grid.Column="1" MinWidth="125" />
             <TextBox Name="tbxSpeciality" Text="{Binding Path=CurrentAgent.Speciality}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="2" Grid.Column="1" MinWidth="125" />
             <TextBox Name="tbxAssignment" Text="{Binding Path=CurrentAgent.Assignment}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="3" Grid.Column="1" MinWidth="125" />
-            
+
             <ListBox ItemsSource="{Binding Path=Agents}"
                      SelectedItem="{Binding Path=CurrentAgent}"
                      SelectedIndex="{Binding Path=CurrentIndex}"
