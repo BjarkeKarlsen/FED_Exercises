@@ -28,29 +28,6 @@ namespace Lesson_6
         }
 
 
-        #region Button Clicked
-
-        //private void BtnBack_Click(object sender, RoutedEventArgs e) {
-        //    if (lbxAgents.SelectedIndex > 0)
-        //        lbxAgents.SelectedIndex = --lbxAgents.SelectedIndex;
-        //}
-
-        //private void BtnForward_Click(object sender, RoutedEventArgs e) {
-        //    if (lbxAgents.SelectedIndex < lbxAgents.Items.Count - 1)
-        //        lbxAgents.SelectedIndex = ++lbxAgents.SelectedIndex;
-        //}
-
-        //private void BtnAddNew_Click(object sender, RoutedEventArgs e) {
-        //    var vm = DataContext as MainWindow;
-        //    vm.AddNewAgent();
-        //    lbxAgents.SelectedIndex = lbxAgents.Items.Count - 1;
-        //    tbxId.Focus();
-        //}
-
-        #endregion
-
-        
-
         
 
     }

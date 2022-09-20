@@ -8,8 +8,10 @@
         xmlns:viewModel="clr-namespace:Lesson_6.ViewModels"
         xmlns:mvvm="http://prismlibrary.com/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-
+        Title="Agent " Height="450" Width="800">
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel></viewModel:MainWindowViewModel>
+    </Window.DataContext>
 
     <DockPanel>
         <Menu DockPanel.Dock="Top" Name="mainMenu">
@@ -56,19 +58,35 @@
             />
         </ToolBar>
 
+        <ToolBar DockPanel.Dock="Bottom" Background="DeepSkyBlue">
+            <StatusBar DockPanel.Dock="Bottom" VerticalAlignment="Bottom" Height="auto" Background="DeepSkyBlue">
+                <StatusBarItem Content="Agents Count"></StatusBarItem>
+                <StatusBarItem Name="sbiAgentCount"
+                               Width="40"
+                               Content="{Binding Agents.Count}"
+                />
+                <StatusBar Name="sbiClock" VerticalAlignment="Center" HorizontalAlignment="Left"  Background="DeepSkyBlue">
+                    <StackPanel Orientation="Horizontal" Name="spClock">
+                        <TextBlock Margin="3.0" Name="tbxDate" Text="{Binding Path=Clock.Date}" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBlock>
+                        <TextBlock Margin="3.0" Name="tbxTime" Text="{Binding Path=Clock.Time}" RenderTransformOrigin="0.626,0.672"></TextBlock>
+                    </StackPanel>
+                </StatusBar>
+            </StatusBar>
+        </ToolBar>
+
         <Grid x:Name="AgentGrid">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.7*"></ColumnDefinition>
-                <ColumnDefinition Width="1.7*"></ColumnDefinition>
-                <ColumnDefinition Width="1.7*"></ColumnDefinition>
+                <ColumnDefinition Width="137*"></ColumnDefinition>
+                <ColumnDefinition Width="331.707"></ColumnDefinition>
+                <ColumnDefinition Width="332*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="15*"></RowDefinition>
-                <RowDefinition Height="15*"></RowDefinition>
-                <RowDefinition Height="15*"></RowDefinition>
-                <RowDefinition Height="40*"></RowDefinition>
-                <RowDefinition Height="10*"></RowDefinition>
-                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="54.069"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="144.183"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
             </Grid.RowDefinitions>
 
             <Label Content="Id" VerticalAlignment="Center" FontSize="20" Margin="5" Grid.Row="0" Grid.Column="0"></Label>
@@ -78,10 +96,10 @@
 
 
 
-            <TextBox Name="tbxId" Text="{Binding Path=CurrentAgent.ID}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="0"  Grid.Column="1" MinWidth="125" />
-            <TextBox Name="tbxCodeName" Text="{Binding Path=CurrentAgent.CodeName}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="1" Grid.Column="1" MinWidth="125" />
-            <TextBox Name="tbxSpeciality" Text="{Binding Path=CurrentAgent.Speciality}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="2" Grid.Column="1" MinWidth="125" />
-            <TextBox Name="tbxAssignment" Text="{Binding Path=CurrentAgent.Assignment}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="3" Grid.Column="1" MinWidth="125" />
+            <TextBox Name="tbxId" Text="{Binding Path=CurrentAgent.ID}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="0"  Grid.Column="1" MinWidth="125" MinHeight="35" />
+            <TextBox Name="tbxCodeName" Text="{Binding Path=CurrentAgent.CodeName}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="1" Grid.Column="1" MinWidth="125" MinHeight="35" />
+            <TextBox Name="tbxSpeciality" Text="{Binding Path=CurrentAgent.Speciality}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="2" Grid.Column="1" MinWidth="125" MinHeight="35" />
+            <TextBox Name="tbxAssignment" Text="{Binding Path=CurrentAgent.Assignment}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,15" FontSize="20" Grid.Row="3" Grid.Column="1" MinWidth="331" MinHeight="144" />
 
             <ListBox ItemsSource="{Binding Path=Agents}"
                      SelectedItem="{Binding Path=CurrentAgent}"
@@ -90,6 +108,7 @@
                      DisplayMemberPath="CodeName"
                      Name="lbxAgents"
                      Grid.Row="0" Grid.Column="2" Grid.RowSpan="4"></ListBox>
+
 
             <DockPanel Grid.Row="3" Grid.Column="1" LastChildFill="False" />
         </Grid>

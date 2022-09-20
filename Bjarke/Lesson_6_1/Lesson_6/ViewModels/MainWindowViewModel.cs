@@ -82,23 +82,38 @@ namespace Lesson_6.ViewModels
 
         private DelegateCommand? _previousCommand;
 
-        public DelegateCommand PreviousCommand => _previousCommand ??
-                                                 (_previousCommand = new DelegateCommand(ExecutePreviousCommand,
-                                                     CanExecutePreviousCommand))
-                                                 .ObservesProperty(() => CurrentIndex);
+        public DelegateCommand PreviusCommand =>
+            _previousCommand ?? (_previousCommand = new DelegateCommand(ExecutePreviousCommand, CanExecutePreviousCommand))
+            .ObservesProperty(() => CurrentIndex);
 
-        void ExecutePreviousCommand()
-        {
-            if (CurrentIndex > 0)
+        //void ExecutePreviousCommand()
+        //{
+        //    if (CurrentIndex > 0)
+        //        --CurrentIndex;
+        //}
+
+        //bool CanExecutePreviousCommand()
+        //{
+        //    if (CurrentIndex > 0) return true;
+
+        //    return false;
+        //}
+
+        void ExecutePreviousCommand() {
+            if (CurrentIndex > 0) {
                 --CurrentIndex;
+            }
+
         }
 
-        bool CanExecutePreviousCommand()
-        {
-            if (CurrentIndex > 0) return true;
-            return false;
+        bool CanExecutePreviousCommand() {
+            if (CurrentIndex > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-
 
         void ExecuteCloseCommand()
         {
