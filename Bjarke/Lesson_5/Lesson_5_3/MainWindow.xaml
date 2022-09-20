@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Lesson_5_3"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="AgentGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.7*"></ColumnDefinition>
             <ColumnDefinition Width="1.7*"></ColumnDefinition>

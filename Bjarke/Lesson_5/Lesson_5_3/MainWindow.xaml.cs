@@ -33,6 +33,8 @@ namespace Lesson_5_3
             agents.Add(new Agent("007", "James Bond", "Assassionation", "UpperVolta"));
 
             CurrentAgent = agents[0];
+            AgentGrid.DataContext = Agents;
+
         }
 
         #region Button Clicked
