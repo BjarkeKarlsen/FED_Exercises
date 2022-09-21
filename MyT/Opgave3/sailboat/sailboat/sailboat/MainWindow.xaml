@@ -1,0 +1,34 @@
+﻿<Window x:Class="sailboat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sailboat"
+        mc:Ignorable="d"
+        Title="Hull speed - Exercise 1" Height="450" Width="485">
+
+    <StackPanel Orientation="Horizontal" Margin="0,0,-83,0">
+
+        <StackPanel Background="White" Orientation="Vertical" Height="400" Width="200" HorizontalAlignment="Left" >
+            <TextBlock>
+            <Label Target="{Binding ElementName=nameText}">_Name:</Label>
+            <TextBox x:Name="nameText" Width="80" Padding="2" TextChanged="nameText_TextChanged"
+                     />
+        </TextBlock>
+        <TextBlock>
+             <Label Target="{Binding ElementName=lengthText}">_Length:</Label>
+             <TextBox x:Name="lengthText" Width="40" Padding="2" TextChanged="lengthText_TextChanged"/>
+             <Label>feet</Label>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Center">
+            <Button Click="Button_Click">Calculate Hull Speed</Button>
+        </TextBlock>
+            <TextBlock>
+            <Label>Hull speed: </Label>
+            <TextBlock Name="Hullspeed"></TextBlock>
+            <Label> knots</Label>
+            </TextBlock>
+        </StackPanel>
+        <Image Source="Sailboat.jpg" Margin="10, 0" VerticalAlignment="Top" />
+    </StackPanel>
+</Window>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sailboat_grid", "sailboat_grid\sailboat_grid.csproj", "{DB2D9874-3756-4E8E-BB18-FC9A462A2639}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB2D9874-3756-4E8E-BB18-FC9A462A2639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2D9874-3756-4E8E-BB18-FC9A462A2639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2D9874-3756-4E8E-BB18-FC9A462A2639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2D9874-3756-4E8E-BB18-FC9A462A2639}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE76D707-D2ED-4448-91DC-1CE237F36561}
+	EndGlobalSection
+EndGlobal
