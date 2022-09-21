@@ -1,0 +1,92 @@
+﻿<Window x:Class="Lesson_8.Views.AgentViewModel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lesson_8.Views"
+        mc:Ignorable="d"
+        Height="450" Width="800" 
+        WindowStartupLocation="CenterOwner"
+        FocusManager.FocusedElement="{Binding ElementName=tbxId}"
+        ShowInTaskbar="False"
+        Title="{Binding Path=Title}"
+>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Id" Margin="5,0"  Grid.Row="0"></Label>
+        <Label Content="CodeName" Margin="5,0"  Grid.Row="1"></Label>
+        <Label Content="Specialty" Margin="5,0"  Grid.Row="2"></Label>
+        <Label Content="Assignment" Margin="5,0"  Grid.Row="3"></Label>
+
+        <TextBox Grid.Row="0" 
+                 Grid.Column="1"
+                 Name="tbxId"
+                 Style="{StaticResource JamesStyle}"
+                 Text="{Binding Path=CurrentAgent.Id}"
+                 TabIndex="1"
+                 MinWidth="75"
+
+        />
+        <TextBox Grid.Row="1" 
+                 Grid.Column="1" 
+                 Style="{StaticResource TextBoxStyle}"
+                 Text="{Binding Path=CurrentAgent.CodeName}"
+                 TabIndex="2"
+        />
+        <TextBox Grid.Row="2" 
+                 Grid.Column="1"   
+                 Style="{StaticResource TextBoxStyle}"
+                 Text="{Binding Path=CurrentAgent.Specialty}"
+                 TabIndex="3"
+        />
+        <TextBox Grid.Row="3" 
+                 Grid.Column="1"  
+                 Style="{StaticResource TextBoxStyle}"
+                 Text="{Binding Path=CurrentAgent.Assignment}"
+                 TabIndex="4"
+                 Name="tbxAssignment"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Stretch"
+                 VerticalScrollBarVisibility="Auto"
+        />
+
+        <WrapPanel Grid.Column="1"
+                   Grid.Row="4"
+                   HorizontalAlignment="Center">
+            <Button IsDefault="True"
+                    TabIndex="5"
+                    MinWidth="75"
+                    Name="btnOk"
+                    Content="_Ok"
+                    Command="{Binding Path=OkBtnCommand}"
+                    Margin="5"
+                    Click="BtnOk_OnClick"
+            />
+
+                <Button IsCancel="True"
+                    TabIndex="6"
+                    MinWidth="75"
+                    Name="btnCancel"
+                    Content="_Cancel"
+                    Margin="5"
+            />
+
+
+
+
+
+        </WrapPanel>
+    </Grid>
+</Window>
