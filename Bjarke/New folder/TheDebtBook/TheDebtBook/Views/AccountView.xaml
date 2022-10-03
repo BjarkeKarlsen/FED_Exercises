@@ -21,7 +21,7 @@
             <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
-        <Label Content="Add depter" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"></Label>
+        <Label Content="Add depter" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" FontSize="30"></Label>
 
         <Label Grid.Row="1" Grid.Column="0" Content="Name" Margin="10" HorizontalAlignment="Right"></Label>
         <TextBox Grid.Row="1"    
@@ -31,7 +31,7 @@
                  HorizontalAlignment="Left" 
                  MinWidth="200"
                  Margin="10"
-                 Text="{Binding Path=CurrentAgent.ID}" 
+                 Text="{Binding Path=CurrentAccount.Id}" 
                  TabIndex="1"
                  />
 
@@ -43,7 +43,7 @@
                  HorizontalAlignment="Left" 
                  MinWidth="200"
                  Margin="10"
-                 Text="{Binding Path=CurrentAgent.ID}" 
+                 Text="{Binding Path=CurrentAccount.Name}" 
                  TabIndex="1"
                  />
 

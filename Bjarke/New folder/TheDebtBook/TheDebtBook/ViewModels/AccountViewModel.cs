@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheDebtBook.Models;
 using System.Windows.Input;
+using Prism.Commands;
 
 namespace TheDebtBook.ViewModels
 {
@@ -36,7 +37,24 @@ namespace TheDebtBook.ViewModels
 
         #region Commands
 
+        ICommand _okBtnCommand;
+        public ICommand OkBtnCommand 
+        { 
+            get {
+                return _okBtnCommand ?? (_okBtnCommand = new DelegateCommand(
+                    OkBtnCommand_Execute, OkBtnCommand_CanExecute)
+                    .ObservesProperty(() => CurrentAccount.Id)
+                    .ObservesProperty(() => CurrentAccount.Name));
+            }
+        }
 
+        private void OkBtnCommand_Execute() 
+        { 
+        }
+        private bool OkBtnCommand_CanExecute() 
+        {
+            return IsValid;
+        }
         #endregion
     }
 }

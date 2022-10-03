@@ -11,26 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TheDebtBook.ViewModels;
 
 namespace TheDebtBook.Views
 {
     /// <summary>
-    /// Interaction logic for AccountView.xaml
+    /// Interaction logic for EditAccountView.xaml
     /// </summary>
-    public partial class AccountView : Window
+    public partial class EditAccountView : Window
     {
-        public AccountView() {
+        public EditAccountView() {
             InitializeComponent();
         }
 
-        private void btnOk_Click(object sender, RoutedEventArgs e) 
-            {
-            var viewModel = DataContext as AccountViewModel;
-            if (!viewModel.IsValid)
-                MessageBox.Show("Enter values for Id, name and dept. Missing data");
-            else
-                DialogResult = true;
+        private void btnOk_Click(object sender, RoutedEventArgs e) {
+
         }
     }
 }

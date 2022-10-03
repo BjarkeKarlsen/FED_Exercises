@@ -34,9 +34,9 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Depters" Margin="10,10,10,10"></Label>
-            <DataGrid ItemsSource="{Binding Path=Account}" 
+            <DataGrid ItemsSource="{Binding Path=Accounts}" 
                       SelectedItem="{Binding Path=CurrentAccount}"
-                      SelectedIndex="{Binding Path=CurrentAccount}"
+                      SelectedIndex="{Binding Path=CurrentIndex}"
                       IsSynchronizedWithCurrentItem="True"
                       Grid.Column="0" 
                       Margin="9,9,9,9"  
