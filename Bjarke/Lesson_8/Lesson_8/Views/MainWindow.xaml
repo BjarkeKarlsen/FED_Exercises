@@ -12,9 +12,7 @@
         Background="{DynamicResource ResourceKey=BackGroundBrush}"
         >
         
-    <Window.DataContext>
-        <viewModels:MainWindowViewModel></viewModels:MainWindowViewModel>
-    </Window.DataContext>
+   
     <Window.Resources>
         <SolidColorBrush x:Key="ForegroundBrush" Color="Blue"></SolidColorBrush>
         
