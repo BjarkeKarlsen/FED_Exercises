@@ -7,10 +7,11 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using AgentAssignment;
+using AgentAssignment.Models;
 
-namespace AgentApp
+namespace AgentAssignment.ViewModel
 {
-    public class MainWindowViewModel: INotifyPropertyChanged
+    public class MainWindowViewModel : INotifyPropertyChanged
     {
         ObservableCollection<Agent> agents;
 

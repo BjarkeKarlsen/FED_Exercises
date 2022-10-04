@@ -1,0 +1,59 @@
+﻿<Window x:Class="Debtbook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:vm="clr-namespace:Debtbook.ViewModels"
+        mc:Ignorable="d"
+        
+        
+        Title="Deptors" Height="450" Width="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="19*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="1" Height="28" Margin="0,49,0,0" Name="label1" VerticalAlignment="Top" HorizontalAlignment="Left" >Name</Label>
+        <Label Grid.Column="1" Height="28" Margin="0,79,0,0" Name="label2" VerticalAlignment="Top" HorizontalAlignment="Left" >Initial Value</Label>
+
+        <TextBox Grid.Column="1"
+                Height="23" 
+                 Margin="100,49,0,0" 
+                 Name="tbxId" 
+                 VerticalAlignment="Top" 
+                 HorizontalAlignment="Left" 
+                 Width="100"
+                 Text="{Binding Path=Deptors.Name}"/>
+        <TextBox Grid.Column="1"
+                 Height="23" Margin="100,83,14,0" 
+                 Width="100"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top" 
+                 Text="{Binding Path=Deptors.Amount}" />
+
+        <Button Grid.Column="1" Height="20" Width="40" Margin="100,129,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Name="btnAddNewDeptor" Content="Add" Click="btnAddNewDeptor_Click"/>
+
+
+        
+        <ListBox ItemsSource="{Binding Path=Deptors}" Grid.Column="0" Name="lbxDeptors" HorizontalContentAlignment="Stretch" Margin="20,20,20,60">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path=Deptors.Name}" />
+                        <TextBlock Text="{Binding Path=Deptors.Amount}" />
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
