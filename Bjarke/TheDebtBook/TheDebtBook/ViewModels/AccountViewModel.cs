@@ -27,7 +27,7 @@ namespace TheDebtBook.ViewModels
 
         public bool IsValid {
             get {
-                if (string.IsNullOrEmpty(CurrentAccount.Id) || string.IsNullOrEmpty(CurrentAccount.Name))
+                if (string.IsNullOrEmpty(CurrentAccount.Money) || string.IsNullOrEmpty(CurrentAccount.Name))
                     return false;
 
                 return true;
@@ -43,8 +43,8 @@ namespace TheDebtBook.ViewModels
             get {
                 return _okBtnCommand ?? (_okBtnCommand = new DelegateCommand(
                     OkBtnCommand_Execute, OkBtnCommand_CanExecute)
-                    .ObservesProperty(() => CurrentAccount.Id)
-                    .ObservesProperty(() => CurrentAccount.Name));
+                    .ObservesProperty(() => CurrentAccount.Name)
+                    .ObservesProperty(() => CurrentAccount.Money));
             }
         }
 
