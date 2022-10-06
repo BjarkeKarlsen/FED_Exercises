@@ -4,22 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prism.Mvvm;
 
 namespace TheDebtBook.Models
 {
-    public class Transaction: BindableBase
+
+    public class Transaction : BindableBase
     {
-        string? _id;
+        string? _date;
         double? _amount;
         public Transaction()
         {
+            Date = DateTime.Now.ToString("g");
 
         }
 
-        
-        public Transaction(string? id, double? amount)
+
+        public Transaction(double? amount)
         {
-            _id = id;
+            _date = DateTime.Now.ToString("g");
             _amount = amount;
         }
 
@@ -27,7 +30,7 @@ namespace TheDebtBook.Models
         {
             return MemberwiseClone() as Transaction;
         }
-        public string? Id { get { return _id; } set { SetProperty(ref _id, value); } }
+        public string? Date { get { return _date; } set { SetProperty(ref _date, value); } }
         public double? Amount { get { return _amount; } set { SetProperty(ref _amount, value); } }
     }
 }
