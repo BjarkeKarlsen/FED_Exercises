@@ -28,9 +28,9 @@ namespace TheDebtBook.Views
             {
             var viewModel = DataContext as AccountViewModel;
             if (!viewModel.IsValid)
-                MessageBox.Show("Enter values for Id, name and dept. Missing data");
+                MessageBox.Show("Enter values for name and value. Missing data");
             else
                 DialogResult = true;
-        }
+            }
     }
 }

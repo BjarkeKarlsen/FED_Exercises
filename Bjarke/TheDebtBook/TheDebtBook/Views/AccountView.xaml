@@ -21,7 +21,7 @@
             <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
-        <Label Content="Add depter" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" FontSize="30"></Label>
+        <Label Content="Add deptor" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top" FontSize="30"></Label>
 
         <Label Grid.Row="1" Grid.Column="0" Content="Name" Margin="10" HorizontalAlignment="Right"></Label>
         <TextBox Grid.Row="1"    
@@ -31,7 +31,7 @@
                  HorizontalAlignment="Left" 
                  MinWidth="200"
                  Margin="10"
-                 Text="{Binding Path=CurrentAccount.Id}" 
+                 Text="{Binding Path=CurrentAccount.Name}" 
                  TabIndex="1"
                  />
 
@@ -42,8 +42,8 @@
                  VerticalAlignment="Top" 
                  HorizontalAlignment="Left" 
                  MinWidth="200"
-                 Margin="10"
-                 Text="{Binding Path=CurrentAccount.Name}" 
+                 Margin="15"
+                 Text="{Binding Path=CurrentAccount.Money}" 
                  TabIndex="1"
                  />
 
@@ -59,8 +59,8 @@
                     MinWidth="75" 
                     Name="btnOk" 
                     Content="_Ok"
-                    Command="{Binding Path=OkBtnCommand}"
-                    Margin="5" Click="btnOk_Click"
+                    Margin="5" 
+                    Click="btnOk_Click"
                     />
             <Button Grid.Column="1"
                     Grid.Row="4"

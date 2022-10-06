@@ -18,7 +18,7 @@ namespace TheDebtBook.ViewModels
             CurrentAccount = account;
         }
 
-        #region Propeties
+        #region Properties
         string _titel;
         public string Titel { get { return _titel; } set { SetProperty(ref _titel, value); } }
 
@@ -27,12 +27,14 @@ namespace TheDebtBook.ViewModels
 
         public bool IsValid {
             get {
-                if (string.IsNullOrEmpty(CurrentAccount.Id) || string.IsNullOrEmpty(CurrentAccount.Name))
+                if (string.IsNullOrEmpty(CurrentAccount.Name) || (CurrentAccount.Money == 0) )
                     return false;
-
-                return true;
+                else
+                    return true;
             }
         }
+
+ 
         #endregion
 
         #region Commands
@@ -55,6 +57,8 @@ namespace TheDebtBook.ViewModels
         {
             return IsValid;
         }
+
+        
         #endregion
     }
 }

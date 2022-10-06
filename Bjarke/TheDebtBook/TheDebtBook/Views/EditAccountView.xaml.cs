@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TheDebtBook.ViewModels;
 
 namespace TheDebtBook.Views
 {
@@ -24,7 +25,12 @@ namespace TheDebtBook.Views
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e) {
-
+            var viewModel = DataContext as EditAccountViewModel;
+            if(viewModel.isValid) {
+                viewModel.UpdateBalance();
+                viewModel.AddNewTransaction();
+                tbxValue.Focus();
+            }
         }
     }
 }

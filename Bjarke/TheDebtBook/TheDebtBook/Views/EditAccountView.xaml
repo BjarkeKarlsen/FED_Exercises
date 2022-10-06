@@ -23,7 +23,7 @@
 
         
 
-        <Grid x:Name="AgentGrid">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -38,20 +38,20 @@
             <Label Grid.Column="1" Grid.Row="0" Content="Value" Margin="10" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
             <TextBox Grid.Row="1"    
                  Grid.Column="1"
-                 Name="tbxName" 
+                 Name="tbxValue" 
                  VerticalAlignment="Top" 
                  HorizontalAlignment="Left" 
                  MinWidth="200"
                  Margin="10"
-                 Text="{Binding Path=CurrentAgent.ID}" 
+                 Text="{Binding Path=CurrentAccount.Money}" 
                  TabIndex="1"
                  />
 
             <Label Grid.Column="0" Grid.Row="0" Content="Transaction" Margin="10" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
             
             
-            <ListBox ItemsSource="{Binding Path=Account}"
-                     SelectedItem="{Binding Path=CurrentAgent}"
+            <ListBox ItemsSource="{Binding Path=Transaction}"
+                     SelectedItem="{Binding Path=CurrentTransaction}"
                      SelectedIndex="{Binding Path=CurrentIndex}"
                      IsSynchronizedWithCurrentItem="True"
                      DisplayMemberPath="Transaction"
@@ -69,8 +69,8 @@
                     MinHeight="40"
                     Name="btnOk" 
                     Content="_Add Transaction"
-                    Command="{Binding Path=OkBtnCommand}"
-                    Margin="5" Click="btnOk_Click"
+                    Margin="5" 
+                    Click="btnOk_Click"
                     />
                 <Button Grid.Column="1"
                     Grid.Row="4"

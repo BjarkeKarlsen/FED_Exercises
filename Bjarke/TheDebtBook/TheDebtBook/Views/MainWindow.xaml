@@ -35,7 +35,7 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Depters" Margin="10,10,10,10"></Label>
             <DataGrid ItemsSource="{Binding Path=Accounts}" 
-                      SelectedItem="{Binding Path=CurrentAccount}"
+                      SelectedItem="{Binding Path=CurrentAccount}" 
                       SelectedIndex="{Binding Path=CurrentIndex}"
                       IsSynchronizedWithCurrentItem="True"
                       Grid.Column="0" 
@@ -52,9 +52,15 @@
                 </i:Interaction.Triggers>
 
             </DataGrid>
-            <Button Grid.Column="1" Content="Add" ToolTip="Add a new account" Command="{Binding AddCommand}" Height="100" Width="100"
-            ></Button>
-            
+            <Button 
+                Grid.Column="1" 
+                Content="Add Account" 
+                ToolTip="Add a new account" 
+                Command="{Binding AddCommand}" 
+                Margin="10,10,165,350"
+             />
+
+
         </Grid>
 
     </DockPanel>
