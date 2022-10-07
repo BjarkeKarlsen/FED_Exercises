@@ -13,16 +13,20 @@ namespace TheDebtBook.Models
         string? _id;
         string? _name;
         double? _money;
-        ObservableCollection<Transaction> _transaction;
+        List<Transaction> _transaction;
         public Account()
         {
+            _transaction = new List<Transaction>();
         }
         public Account(string id, string name, double? money)
         {
             _id = id;
             _name = name;
             _money = money;
-            _transaction = new ObservableCollection<Transaction>();
+            Transaction = new List<Transaction>();
+            var firstTransaction = new Transaction(money);
+            Transaction.Add(firstTransaction);
+            CalculateMoney();
         }
 
 
@@ -46,7 +50,7 @@ namespace TheDebtBook.Models
 
         public double? Money { get { return _money; } set { SetProperty(ref _money, value); } }
 
-        public ObservableCollection<Transaction> Transaction
+        public List<Transaction> Transaction
         {
             get { return _transaction; }
             set { SetProperty(ref _transaction, value); }

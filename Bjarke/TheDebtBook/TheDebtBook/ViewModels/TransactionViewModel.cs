@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -17,9 +18,9 @@ namespace TheDebtBook.ViewModels
         public TransactionViewModel(string title, Account account)
         {
             Titel = title;
-            _currentAccount = account;
+            CurrentAccount = account;
             Transactions = new ObservableCollection<Transaction>();
-            _currentTransaction = new Transaction();
+            CurrentTransaction = new Transaction();
 
         }
 
@@ -28,7 +29,7 @@ namespace TheDebtBook.ViewModels
         string _title;
         Account _currentAccount;
         Transaction _currentTransaction;
-        ObservableCollection<Transaction> _transaction;
+        ObservableCollection<Transaction> _transactions;
 
         public string Titel { get { return _title; } set { SetProperty(ref _title, value); } }
         public Account CurrentAccount
@@ -41,17 +42,18 @@ namespace TheDebtBook.ViewModels
         {
             get
             {
-                //    if (CurrentTransaction.Amount == null)
-                //        return false;
-                //    else
-                return true;
+                if (CurrentTransaction.Amount == null)
+
+                    return false;
+                else
+                    return true;
             }
         }
 
         public ObservableCollection<Transaction> Transactions
         {
-            get { return _transaction; }
-            set { SetProperty(ref _transaction, value); }
+            get { return _transactions; }
+            set { SetProperty(ref _transactions, value); }
         }
 
         public Transaction CurrentTransaction

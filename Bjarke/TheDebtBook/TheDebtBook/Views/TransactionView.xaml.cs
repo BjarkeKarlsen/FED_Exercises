@@ -30,20 +30,18 @@ namespace TheDebtBook.Views
         {
             var viewModel = DataContext as TransactionViewModel;
 
-            //DialogResult = true;
             if (viewModel.IsValid)
             {
-                //DialogResult = true;
-
-                Transaction transaction = new Transaction(56);
+                Transaction transaction = new Transaction();
                 transaction.Amount = viewModel.CurrentTransaction.Amount;
                 transaction.Date = viewModel.CurrentTransaction.Date;
                 viewModel.CurrentAccount.Transaction.Add(transaction);
-                lbxTransaction.Items.Refresh();
-                //viewModel.UpdateBalance();
-                //viewModel.AddNewTransaction();
-                //tbxValue.Focus();
+                DataTrans.Items.Refresh();
+
             }
+            else
+                MessageBox.Show("Enter transaction value. Missing data");
+
         }
     }
 }

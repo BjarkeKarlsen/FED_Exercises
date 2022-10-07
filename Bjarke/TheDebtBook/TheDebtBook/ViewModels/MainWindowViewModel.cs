@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using TheDebtBook.Models;
 using TheDebtBook.Views;
+using Microsoft.Win32;
+using System.IO;
+using TheDebtBook.Data;
 
 namespace TheDebtBook.ViewModels
 {
@@ -25,6 +28,10 @@ namespace TheDebtBook.ViewModels
         }
 
         #region Propeties
+
+        private string _filePath = "";
+        private string _fileName = "No file loaded";
+
         private Account currentAccount;
         public Account CurrentAccount { get { return currentAccount; } set { SetProperty(ref currentAccount, value); } }
 
@@ -36,11 +43,21 @@ namespace TheDebtBook.ViewModels
 
         private bool _dirty = false;
         public bool Dirty { get { return _dirty; } set { SetProperty(ref _dirty, value); RaisePropertyChanged("Title"); } }
+
+        public string FileName
+        {
+            get { return _fileName; }
+            set
+            {
+                SetProperty(ref _fileName, value);
+                RaisePropertyChanged("Title");
+            }
+        }
+
+
         #endregion
 
-        #region Methods
 
-        #endregion
 
         #region Commands
 
@@ -91,38 +108,118 @@ namespace TheDebtBook.ViewModels
             }
         }
 
-        /*
-            private DelegateCommand checkSaldoCommand;
-        public DelegateCommand CheckSaldoCommand =>
-            checkSaldoCommand ?? (checkSaldoCommand = new DelegateCommand(ExecuteCheckSaldoCommand, CanExecuteCheckSaldoCommand)
-            .ObservesProperty(() => CurrentIndex));
-
-        void ExecuteCheckSaldoCommand()
-        {
-            var tempDebtor = CurrentDebtor.Clone();
-            var logTransactionvm = new LogTransactionViewModel("Saldo", tempDebtor)
-            { };
-
-            var dlg = new LogTransactionView
-            {
-                DataContext = logTransactionvm,
-                Owner = Application.Current.MainWindow
-            };
-
-            if (dlg.ShowDialog() != true)
-            {
-                CurrentDebtor.Transactions = tempDebtor.Transactions;
-                CurrentDebtor.CalculateSaldo();
-                Dirty = true;
-            }
-        }
-               
-                
-                
-            }
-            */
 
         private bool CanExecuteEditCommand() { return CurrentIndex >= 0; }
+        DelegateCommand _NewFileCommand;
+        public DelegateCommand NewFileCommand
+        {
+            get { return _NewFileCommand = new DelegateCommand(NewFileCommand_Execute); }
+        }
+
+        private void NewFileCommand_Execute()
+        {
+            MessageBoxResult res = MessageBox.Show("Any unsaved data will be lost. Are you sure you want to initiate a new file?", "Warning",
+                MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (res == MessageBoxResult.Yes)
+            {
+                Accounts.Clear();
+                FileName = "";
+
+            }
+        }
+
+        DelegateCommand _OpenFileCommand;
+        public DelegateCommand OpenFileCommand
+        {
+            get { return _OpenFileCommand = new DelegateCommand(OpenFileCommand_Execute); }
+        }
+
+        private void OpenFileCommand_Execute()
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = "Account documents|*.dbt|All Files|*.*",
+                DefaultExt = "dbt"
+            };
+            if (_filePath == "")
+                dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            else
+                dialog.InitialDirectory = Path.GetDirectoryName(_filePath);
+
+            if (dialog.ShowDialog(Application.Current.MainWindow) == true)
+            {
+                _filePath = dialog.FileName;
+                FileName = Path.GetFileName(_filePath);
+                try
+                {
+                    Accounts = Repository.ReadFile(_filePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Unable to open file", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        DelegateCommand _SaveAsCommand;
+        public DelegateCommand SaveAsCommand
+        {
+            get { return _SaveAsCommand ?? (_SaveAsCommand = new DelegateCommand(SaveAsCommand_Execute)); }
+        }
+
+        private void SaveAsCommand_Execute()
+        {
+            var dialog = new SaveFileDialog
+            {
+                Filter = "Account documents|*.dbt|All Files|*.*",
+                DefaultExt = "dbt"
+            };
+            if (_filePath == "")
+                dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            else
+                dialog.InitialDirectory = Path.GetDirectoryName(_filePath);
+
+            if (dialog.ShowDialog(Application.Current.MainWindow) == true)
+            {
+                _filePath = dialog.FileName;
+                FileName = Path.GetFileName(_filePath);
+                SaveFile();
+            }
+        }
+
+        DelegateCommand _SaveCommand;
+        public DelegateCommand SaveCommand
+        {
+            get
+            {
+                return _SaveCommand ?? (_SaveCommand = new DelegateCommand(SaveFileCommand_Execute, SaveFileCommand_CanExecute)
+                  .ObservesProperty(() => Accounts.Count));
+            }
+        }
+
+        private void SaveFileCommand_Execute()
+        {
+            SaveFile();
+        }
+
+        private bool SaveFileCommand_CanExecute()
+        {
+            return FileName != "" && Accounts.Count > 0;
+        }
+
+        private void SaveFile()
+        {
+            try
+            {
+                Repository.SaveFile(_filePath, Accounts);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Unable to save file", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
 
         #endregion
     }
