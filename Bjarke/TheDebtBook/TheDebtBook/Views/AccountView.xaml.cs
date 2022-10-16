@@ -20,15 +20,16 @@ namespace TheDebtBook.Views
     /// </summary>
     public partial class AccountView : Window
     {
-        public AccountView() {
+        public AccountView()
+        {
             InitializeComponent();
         }
 
-        private void btnOk_Click(object sender, RoutedEventArgs e) 
-            {
+        private void btnOk_Click(object sender, RoutedEventArgs e)
+        {
             var viewModel = DataContext as AccountViewModel;
             if (!viewModel.IsValid)
-                MessageBox.Show("Enter values for Id, name and dept. Missing data");
+                MessageBox.Show("Enter values for name and value. Missing data");
             else
                 DialogResult = true;
         }

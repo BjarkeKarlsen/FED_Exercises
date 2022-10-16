@@ -34,17 +34,32 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Depters" Margin="10,10,10,10"></Label>
+
             <DataGrid ItemsSource="{Binding Path=Accounts}" 
-                      SelectedItem="{Binding Path=CurrentAccount}"
+                      SelectedItem="{Binding Path=CurrentAccount}" 
                       SelectedIndex="{Binding Path=CurrentIndex}"
                       IsSynchronizedWithCurrentItem="True"
                       Grid.Column="0" 
                       Margin="9,9,9,9"  
                       CanUserAddRows="False" 
                       CanUserDeleteRows="False" 
+                      AutoGenerateColumns="False"
                       IsReadOnly="True"
                       MinRowHeight="12"
                      >
+                <DataGrid.Columns>
+                    <DataGridTextColumn 
+                    Header="Name"
+                    CanUserResize="False"
+                    Binding="{Binding Path=Name}" 
+                        MinWidth="250"
+                />
+                    <DataGridTextColumn 
+                    Header="Money" 
+                    CanUserResize="False"     
+                    Binding="{Binding Path=Money}"
+                />
+                </DataGrid.Columns>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
                         <prism:InvokeCommandAction Command="{Binding EditCommand}"/>
@@ -52,9 +67,15 @@
                 </i:Interaction.Triggers>
 
             </DataGrid>
-            <Button Grid.Column="1" Content="Add" ToolTip="Add a new account" Command="{Binding AddCommand}" Height="100" Width="100"
-            ></Button>
-            
+            <Button 
+                Grid.Column="1" 
+                Content="Add Account" 
+                ToolTip="Add a new account" 
+                Command="{Binding AddCommand}" 
+                Margin="10,10,165,350"
+             />
+
+
         </Grid>
 
     </DockPanel>

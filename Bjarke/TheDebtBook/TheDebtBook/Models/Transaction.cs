@@ -5,23 +5,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Prism.Mvvm;
+
 namespace TheDebtBook.Models
 {
+
     public class Transaction : BindableBase
     {
-        string _date;
-        double _money;
+        string? _date;
+        double? _amount;
+        public Transaction()
+        {
+            Date = DateTime.Now.ToString("g");
 
-        public Transaction() 
-        { 
-        }
-        public Transaction(string date, double money) {
-            _date = date;
-            _money = money;
         }
 
-        public string Date { get { return _date; } set{ SetProperty(ref _date, value);  } }
 
-        public double Money { get { return _money; } set { SetProperty(ref _money, value); } }
+        public Transaction(double? amount)
+        {
+            _date = DateTime.Now.ToString("g");
+            _amount = amount;
+        }
+
+        public Transaction? Clone()
+        {
+            return MemberwiseClone() as Transaction;
+        }
+        public string? Date { get { return _date; } set { SetProperty(ref _date, value); } }
+        public double? Amount { get { return _amount; } set { SetProperty(ref _amount, value); } }
+
     }
 }
