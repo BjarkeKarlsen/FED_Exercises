@@ -67,17 +67,7 @@ namespace TheDebtBook.ViewModels
 
         #region Methods
 
-        //public void AddNewTransaction()
-        //{
 
-        //    _currentAccount.Transaction.Add(new Transaction(CurrentTransaction.Amount));
-        //    UpdateBalance();
-        //}
-
-        //private void UpdateBalance()
-        //{
-        //    _currentAccount.Money += _currentTransaction.Amount;
-        //}
         #endregion
 
         #region Commands
