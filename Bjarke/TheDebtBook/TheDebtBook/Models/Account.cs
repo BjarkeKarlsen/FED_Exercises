@@ -20,6 +20,7 @@ namespace TheDebtBook.Models
         }
         public Account(string id, string name, double? money)
         {
+
             _id = id;
             _name = name;
             _money = money;
@@ -55,5 +56,6 @@ namespace TheDebtBook.Models
             get { return _transaction; }
             set { SetProperty(ref _transaction, value); }
         }
+
     }
 }

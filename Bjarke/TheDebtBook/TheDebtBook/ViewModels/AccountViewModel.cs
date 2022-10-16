@@ -50,8 +50,8 @@ namespace TheDebtBook.ViewModels
             {
                 return _okBtnCommand ?? (_okBtnCommand = new DelegateCommand(
                     OkBtnCommand_Execute, OkBtnCommand_CanExecute)
-                    .ObservesProperty(() => CurrentAccount.Id)
-                    .ObservesProperty(() => CurrentAccount.Name));
+                    .ObservesProperty(() => CurrentAccount.Name)
+                    .ObservesProperty(() => CurrentAccount.Money));
             }
         }
 

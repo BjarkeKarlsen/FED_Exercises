@@ -1,9 +1,10 @@
-﻿using Prism.Mvvm;
+using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Prism.Mvvm;
 
 namespace TheDebtBook.Models
@@ -32,5 +33,6 @@ namespace TheDebtBook.Models
         }
         public string? Date { get { return _date; } set { SetProperty(ref _date, value); } }
         public double? Amount { get { return _amount; } set { SetProperty(ref _amount, value); } }
+
     }
 }
