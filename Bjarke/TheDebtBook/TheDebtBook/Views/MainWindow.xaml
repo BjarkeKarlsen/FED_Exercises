@@ -10,7 +10,6 @@
         Title="{Binding Title}" Height="450" Width="800"
         prism:ViewModelLocator.AutoWireViewModel="True"
         >
-
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closing">
             <prism:InvokeCommandAction Command="{Binding ClosingCommand}"/>
@@ -74,7 +73,6 @@
                 ToolTip="Add a new account" 
                 Command="{Binding AddCommand}" 
                 Margin="10,10,165,350"
-                Style="{StaticResource DefaultButton}"
              />
 
 

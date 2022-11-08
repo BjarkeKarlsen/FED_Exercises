@@ -103,7 +103,6 @@
                     Margin="5" 
                     Command="{Binding Path=addValuebtnCommand}"
                     Click="btnAdd_Click"
-                    Style="{StaticResource DefaultButton}"
                     />
 
                 <Button Grid.Column="1"
@@ -114,7 +113,6 @@
                     Name="btnCancel" 
                     Content="_Close"
                     Margin="5"
-                    Style="{StaticResource CancelButton}"
                     />
             </WrapPanel>
             <DockPanel Grid.Row="3" Grid.Column="1" LastChildFill="False" />
