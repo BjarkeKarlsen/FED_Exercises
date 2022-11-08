@@ -61,6 +61,7 @@
                     Content="_Ok"
                     Margin="5" 
                     Click="btnOk_Click"
+                    Style="{StaticResource OkButton}"
                     />
             <Button Grid.Column="1"
                     Grid.Row="4"
@@ -70,6 +71,7 @@
                     Name="btnCancel" 
                     Content="_Cancel"
                     Margin="5"
+                     Style="{StaticResource CancelButton}"
                     />
         </WrapPanel>
     </Grid>
