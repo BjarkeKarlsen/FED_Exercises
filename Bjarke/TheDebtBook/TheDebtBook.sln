@@ -5,11 +5,6 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheDebtBook", "TheDebtBook\TheDebtBook.csproj", "{31E30971-43FE-403F-873D-CE4864740396}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14151BE3-B4AD-465B-98E7-5C2259F83EC2}"
-	ProjectSection(SolutionItems) = preProject
-		TheDebtBook\ResourceDictionaries\Dictionary.xaml = TheDebtBook\ResourceDictionaries\Dictionary.xaml
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
