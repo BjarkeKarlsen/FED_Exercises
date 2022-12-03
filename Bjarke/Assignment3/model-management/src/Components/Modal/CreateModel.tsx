@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react";
 import InputField from "../InputField";
 import Heading from "../../Layout/Heading";
-import { useRegister } from "../../mutation/Model/postRegister";
-import type { AccountRegisterDto } from "../../../interfaces/Account";
+import { useLogin } from "../../mutation/Account/Login";
+import type { AccountLoginDto } from "../../../interfaces/Account";
 import Button from "../Button";
 
 const CreateModel = () => {
@@ -12,14 +12,14 @@ const CreateModel = () => {
   const [sumbitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
-  const { mutate: register } = useRegister();
+  const { mutate: login } = useLogin();
 
   const handleSubmit = () => {
-    const model: AccountRegisterDto = {
+    const model: AccountLoginDto = {
       email: email,
       password: password,
     };
-    register(model);
+    login(model);
   };
 
   return (

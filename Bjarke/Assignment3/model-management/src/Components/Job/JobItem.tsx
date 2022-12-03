@@ -1,4 +1,4 @@
-import getJobList from "../../queries/Jobs";
+//import getJobList from "../../queries/Jobs";
 
 const JobItem = ({ job }: { job: any }) => {
   return (

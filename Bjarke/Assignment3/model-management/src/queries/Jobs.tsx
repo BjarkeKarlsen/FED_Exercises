@@ -1,5 +1,5 @@
-import type { JobRegisterDto } from "../../interfaces/Job";
-import { useQuery, useQueryClient } from "react-query";
+// import type { JobRegisterDto } from "../../interfaces/Job";
+import { useQuery } from "react-query";
 import { request } from "../utils/Axios-utils";
 
 const fetchAllJobs = async () => {
@@ -13,8 +13,10 @@ const fetchAllJobs = async () => {
   return response;
 };
 
-const getJobList = () => {
-  return useQuery("jobKey", fetchAllJobs);
+const GetJobList = () => {
+  return useQuery("jobKey", fetchAllJobs, {
+    refetchOnWindowFocus: false,
+  });
 };
 
-export default getJobList;
+export default GetJobList;
