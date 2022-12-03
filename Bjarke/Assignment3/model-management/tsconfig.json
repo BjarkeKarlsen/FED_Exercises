@@ -21,6 +21,13 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
+    "src/Layout/*.tsx",
+    "src/Pages/*tsx",
+    "**/*.ts",
+    "**/*.tsx",
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
