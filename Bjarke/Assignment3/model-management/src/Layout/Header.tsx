@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HomePage from "../Pages/Home.page";
 import LoginPage from "../Pages/Login.page";
+import Manager from "../Pages/Manager.page";
+import Job from "../Pages/Job.page";
+import Model from "../Pages/Model.page";
 
 const Header = () => {
   return (
@@ -27,9 +30,25 @@ const Header = () => {
             <li className="mr-1">
               <Link
                 className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
-                to="/rq-super-heroes"
+                to="/manager"
               >
-                RQ Super Heroes
+                Manager
+              </Link>
+            </li>
+            <li className="mr-1">
+              <Link
+                className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+                to="/job"
+              >
+                Job
+              </Link>
+            </li>
+            <li className="mr-1">
+              <Link
+                className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+                to="/model"
+              >
+                Model
               </Link>
             </li>
           </ul>
@@ -58,6 +77,9 @@ const Header = () => {
         </Route> */}
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/" element={<HomePage />}></Route>
+          <Route path="/manager" element={<Manager />}></Route>
+          <Route path="/job" element={<Job />}></Route>
+          <Route path="/model" element={<Model />}></Route>
         </Routes>
       </div>
     </Router>

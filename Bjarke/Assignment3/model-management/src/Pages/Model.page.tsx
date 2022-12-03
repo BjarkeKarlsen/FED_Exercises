@@ -1,13 +1,15 @@
 import { useState } from "react";
+import TextButton from "../Components/Button";
 import Modal from "../Components/Modal";
 import CreateModel from "../Components/Modal/CreateModel";
-import TextButton from "../Components/Button";
+import Heading from "../Layout/Heading";
 
-const HomePage = () => {
+const ModelPage = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
+      <Heading text={"Model"} />
       <TextButton
         onClick={() => setShowModal(true)}
         text={"Click here to sign up"}
@@ -21,4 +23,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ModelPage;

@@ -1,11 +1,10 @@
 import { useMutation, useQueryClient } from "react-query";
 import { request } from "../../utils/Axios-utils";
 import { toast } from "react-toastify";
-import type { ModelRegisterDto } from "../../../interfaces/Model";
-
-export const register = async (data: ModelRegisterDto) => {
+import type { JobRegisterDto } from "../../../interfaces/Job";
+export const register = async (data: JobRegisterDto) => {
   return await request({
-    url: `Models`,
+    url: `Jobs`,
     method: "POST",
     data: data,
   });
@@ -15,10 +14,10 @@ export const useRegister = () => {
   const queryClient = useQueryClient();
   return useMutation(register, {
     onSuccess: () => {
-      toast.success(`Model created successfully`);
+      toast.success(`Job created successfully`);
     },
     onError: (error) => {
-      toast.error("Failed to create model");
+      toast.error("Failed to create Job");
     },
   });
 };
