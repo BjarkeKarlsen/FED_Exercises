@@ -56,8 +56,9 @@ const CreateModel = () => {
 
   return (
     <div className="border rounded border-grey-400 bg-white overflow-hidden shadow-lg flex p-4 justify-center">
-      <div className="flex flex-col justify-center w-3/3">
+      <div className="flex justify-center ">
         <h2>Create Model </h2>
+
         <form className="flex flex-col justify-center">
           <div className=" inline-flex justify-between ">
             <Label text={"First Name"} />

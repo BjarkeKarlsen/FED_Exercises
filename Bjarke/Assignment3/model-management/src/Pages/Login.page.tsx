@@ -18,9 +18,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="r">
+    <div className="md:min-h-[70%]">
       <Heading text={"Login"} />
-      <div className="border rounded border-grey-300 bg-white overflow-hidden shadow-lg flex p-4 justify-center">
+      <div className="border rounded border-grey-300 bg-white overflow-hidden shadow-lg flex p-4 justify-center ">
         <form className="">
           <label className="mx-4">
             <p>Username</p>

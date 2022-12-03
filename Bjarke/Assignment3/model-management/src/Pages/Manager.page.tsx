@@ -1,9 +1,12 @@
 import Heading from "../Layout/Heading";
+import ManagerContent from "../Components/Management/ManagerContent";
+import GetManagerList from "../queries/Manager";
 
 const Mananger = () => {
+  const { data: managerData } = GetManagerList();
   return (
     <>
-      <Heading text={"Model"} />
+      <ManagerContent managerData={managerData} />
     </>
   );
 };
