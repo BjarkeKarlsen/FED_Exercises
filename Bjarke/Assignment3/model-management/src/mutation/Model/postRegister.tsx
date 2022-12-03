@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "react-query";
 import { request } from "../../utils/Axios-utils";
 import { toast } from "react-toastify";
-import type { ModelRegisterDto } from "../../../interfaces/Model";
+import type { ModelRegisterDto } from "../../../interfaces/Account";
 
 export const register = async (data: ModelRegisterDto) => {
   return await request({

@@ -1,18 +1,11 @@
 import Heading from "../Layout/Heading";
+import getJobList from "../queries/Jobs";
+import JobList from "../Components/Job/JobList";
 
-const ViewJob = () => {
-  return (
-    <div>
-      <Heading text="Job" />
-      <form>
-        <label>Customer</label>
-        <label>Start Date</label>
-        <label>Date</label>
-        <label>Location</label>
-        <label>Comments</label>
-      </form>
-    </div>
-  );
+const JobPage = () => {
+  const { data: jobsData } = getJobList();
+
+  return <JobList jobListData={jobsData} />;
 };
 
-export default ViewJob;
+export default JobPage;

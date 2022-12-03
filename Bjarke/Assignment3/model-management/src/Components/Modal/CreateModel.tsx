@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import InputField from "../InputField";
 import Heading from "../../Layout/Heading";
 import { useRegister } from "../../mutation/Model/postRegister";
-import type { ModelRegisterDto } from "../../../interfaces/Model";
+import type { AccountRegisterDto } from "../../../interfaces/Account";
 import Button from "../Button";
 
 const CreateModel = () => {
@@ -15,7 +15,7 @@ const CreateModel = () => {
   const { mutate: register } = useRegister();
 
   const handleSubmit = () => {
-    const model: ModelRegisterDto = {
+    const model: AccountRegisterDto = {
       email: email,
       password: password,
     };
@@ -28,23 +28,25 @@ const CreateModel = () => {
         <h2>Create Model </h2>
         <form className="flex flex-col justify-center">
           <label className="mx-4 text-sm">Email</label>
-          <input
-            className="m-4 md:mx-4 border rounded border-grey-300 text-sm"
+          <InputField
             type="text"
             required
             placeholder="email@gmail.com"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.target.value)
+            }
           />
           <label className="mx-4 text-sm">Password</label>
-          <input
-            className="m-4 md:mx-4 border rounded border-grey-300"
+          <InputField
             text-sm
             type="password"
             required
             placeholder="******"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setPassword(e.target.value)
+            }
           />
           <Button text="Submit" onClick={handleSubmit} />
         </form>

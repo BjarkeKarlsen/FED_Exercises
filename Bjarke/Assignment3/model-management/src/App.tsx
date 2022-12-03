@@ -8,7 +8,7 @@ import Meta from "./Layout/Meta";
 import LoginPage from "./Pages/Login.page";
 import AuthProvider from "./utils/authprovider";
 import { Admin } from "react-admin";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 const queryClient = new QueryClient();
 
