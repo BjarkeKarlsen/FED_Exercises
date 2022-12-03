@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Heading from "../../Layout/Heading";
-import Modal from "../BiggerModal";
+import Modal from "../ModalComponents/BiggerModal";
 import TextButton from "../Button";
 import ManagerList from "./ManagerList";
-import CreateManager from "../Modal/CreateManager";
+import CreateManager from "./ModalCreateManager";
 
 const ManagerContent = ({ managerData }: { managerData: any }) => {
   const [showModal, setShowModal] = useState(false);

@@ -1,11 +1,11 @@
 import { ChangeEvent, useState } from "react";
 import InputField from "../InputFieldModal";
-import Heading from "../../Layout/Heading";
+import ModalHeader from "../ModalComponents/Header";
 import { useRegister } from "../../mutation/Model/postRegister";
 import type { ModelRegisterDto } from "../../../interfaces/Model";
 import Button from "../Button";
 import NumberField from "../NumberField";
-import { Label } from "../Label";
+import { Label } from "../ModalComponents/Label";
 
 const CreateModel = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -56,9 +56,8 @@ const CreateModel = () => {
 
   return (
     <div className="border rounded border-grey-400 bg-white overflow-hidden shadow-lg flex p-4 justify-center">
-      <div className="flex justify-center ">
-        <h2>Create Model </h2>
-
+      <div className="flex flex-col justify-center ">
+        <ModalHeader text={"Create Model"} />
         <form className="flex flex-col justify-center">
           <div className=" inline-flex justify-between ">
             <Label text={"First Name"} />

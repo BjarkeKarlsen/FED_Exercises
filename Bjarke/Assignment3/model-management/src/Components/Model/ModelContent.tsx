@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TextButton from "../Button";
-import Modal from "../BiggerModal";
-import CreateModel from "..//Modal/CreateModel";
+import Modal from "../ModalComponents/BiggerModal";
+import CreateModel from "./ModalCreateModel";
 import Heading from "../../Layout/Heading";
 import ModelList from "./ModelList";
 

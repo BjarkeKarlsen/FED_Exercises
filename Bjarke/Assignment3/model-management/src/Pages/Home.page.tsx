@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Modal from "../Components/Modal";
-import CreateModel from "../Components/Modal/CreateModel";
+import Modal from "../Components/ModalComponents/Modal";
+import CreateModel from "../Components/Model/ModalCreateModel";
 import TextButton from "../Components/Button";
 
 const HomePage = () => {

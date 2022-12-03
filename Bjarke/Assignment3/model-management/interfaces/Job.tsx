@@ -6,3 +6,8 @@ export type JobRegisterDto = {
   location: string;
   comments: string;
 };
+
+export type JobModel = {
+  jobid: number;
+  modelid: number;
+};

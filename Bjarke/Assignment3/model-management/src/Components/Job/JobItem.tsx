@@ -12,3 +12,5 @@ const JobItem = ({ job }: { job: any }) => {
     </div>
   );
 };
+
+export default JobItem;
