@@ -7,6 +7,7 @@ import Meta from "./Layout/Meta";
 // import { Admin } from "react-admin";
 import { ToastContainer } from "react-toastify";
 import { SetupInterceptors } from "./utils/Axios-utils";
+import "react-toastify/dist/ReactToastify.css";
 
 const queryClient = new QueryClient();
 

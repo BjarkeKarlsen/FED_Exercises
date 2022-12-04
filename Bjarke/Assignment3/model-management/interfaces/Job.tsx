@@ -21,7 +21,7 @@ export type Jobs = {
   jobs: Job[];
 };
 
-export type JobModel = {
-  jobid: number;
-  modelid: number;
+export type JobModelDto = {
+  jobId: number;
+  modelId: number;
 };

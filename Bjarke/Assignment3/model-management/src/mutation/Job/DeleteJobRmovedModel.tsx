@@ -1,18 +1,18 @@
 import { useMutation } from "react-query";
 import { request } from "../../utils/Axios-utils";
 import { toast } from "react-toastify";
-import type { JobModel } from "../../../interfaces/Job";
+import type { JobModelDto } from "../../../interfaces/Job";
 
-export const register = async (data: JobModel) => {
+export const jobDeleteModel = async (data: JobModelDto) => {
   return await request({
-    url: `Jobs/${data.jobid}/model/${data.modelid}`,
+    url: `Jobs/${data.jobId}/model/${data.modelId}`,
     method: "DELETE",
     data: data,
   });
 };
 
-export const useRegister = () => {
-  return useMutation(register, {
+export const useJobDeleteModel = () => {
+  return useMutation(jobDeleteModel, {
     onSuccess: () => {
       toast.success(`Deleted model from job`);
     },
