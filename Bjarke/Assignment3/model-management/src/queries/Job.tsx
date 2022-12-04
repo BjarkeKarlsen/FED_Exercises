@@ -9,6 +9,7 @@ const fetchJob = async ({ queryKey }: { queryKey: Array<any> }) => {
   if (response.status === 304) {
     throw new Error("Problem fetching data");
   }
+  console.log("This is response on job id", response);
 
   return response;
 };
@@ -27,6 +28,6 @@ export const GetJob = (id: number) => {
         return undefined;
       }
     },
-    refetchInterval: 5000,
+    refetchOnWindowFocus: false,
   });
 };

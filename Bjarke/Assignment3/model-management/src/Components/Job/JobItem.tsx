@@ -11,7 +11,7 @@ const JobItem = ({ job }: { job: Job }) => {
     <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg content-center h-200 flex flex-col justify-center">
       <Link
         className="w-full block p-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-green-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-        to="/job/:id"
+        to={`/job/${job.jobId}`}
       >
         <h1>Job: {job.customer}</h1>
         <h2>Location: {job.location}</h2>

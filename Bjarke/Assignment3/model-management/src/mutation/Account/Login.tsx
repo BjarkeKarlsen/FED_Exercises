@@ -17,7 +17,7 @@ export const login = async (data: AccountLoginDto) => {
 export const useLogin = () => {
   return useMutation(login, {
     onSuccess: () => {
-      //toast.success(`Model created successfully`);
+      toast.success(`Model created successfully`);
     },
     onError: (error) => {
       toast.error("Failed to create model");

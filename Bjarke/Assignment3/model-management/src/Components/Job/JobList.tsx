@@ -19,7 +19,6 @@ const JobList = ({ jobList }: { jobList: Job[] }) => {
             <ModalCreateJob />
           </Modal>
         </div>
-        {/* <JobItem job={jobList[0]} /> */}
 
         <div className="flex flex-wrap justify-center">
           {/* This maps out all workouts with their exercise as names */}

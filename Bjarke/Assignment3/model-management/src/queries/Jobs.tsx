@@ -14,7 +14,7 @@ const fetchAllJobs = async () => {
 };
 
 const GetJobList = () => {
-  return useQuery("jobKey", fetchAllJobs, {
+  return useQuery("jobsKey", fetchAllJobs, {
     refetchOnWindowFocus: false,
   });
 };

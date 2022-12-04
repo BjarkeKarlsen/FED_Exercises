@@ -14,7 +14,7 @@ export type Job = {
   days: number;
   location: string;
   comments: string;
-  jobModels: ModelDto[];
+  models: ModelDto[];
 };
 
 export type Jobs = {

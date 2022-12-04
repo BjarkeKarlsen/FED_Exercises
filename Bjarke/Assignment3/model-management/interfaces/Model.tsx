@@ -1,3 +1,4 @@
+import type { Jobs } from "./Job";
 export type ModelRegisterDto = {
   firstName: string;
   lastName: string;
@@ -16,4 +17,12 @@ export type ModelRegisterDto = {
   eyeColor: string;
   comments: string;
   password: string;
+};
+
+export type ModelDto = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNo: string;
+  jobs: string[];
 };

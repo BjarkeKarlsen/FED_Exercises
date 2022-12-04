@@ -3,6 +3,7 @@ import HomePage from "../Pages/Home.page";
 import LoginPage from "../Pages/Login.page";
 import Manager from "../Pages/Manager.page";
 import Job from "../Pages/Job.page";
+import JobId from "../Pages/JobId.page";
 import Model from "../Pages/Model.page";
 import { Navbar } from "flowbite-react";
 
@@ -70,6 +71,7 @@ const Header = () => {
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/manager" element={<Manager />}></Route>
           <Route path="/job" element={<Job />}></Route>
+          <Route path="/job/:jobId" element={<JobId />}></Route>
           <Route path="/model" element={<Model />}></Route>
         </Routes>
       </div>
