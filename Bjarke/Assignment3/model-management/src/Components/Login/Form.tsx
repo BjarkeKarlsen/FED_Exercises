@@ -25,9 +25,11 @@ const Form = () => {
   };
   return (
     <div className="flex flex-col w-1/3 justify-center">
-      <img src="/logo.png" alt="Fattylee" width="100%" height="50%" />
+      <div className="flex justify-center">
+        <img src="/logo.png" alt="Fattylee" width="60%" height="50%" />
+      </div>
       <form className="flex flex-col justify-center">
-        <div className=" inline-flex justify-between ">
+        <div className=" inline-flex justify-center ">
           <Label text={"Email"} />
           <InputField
             type="text"
@@ -39,7 +41,7 @@ const Form = () => {
             }
           />
         </div>
-        <div className=" inline-flex justify-between ">
+        <div className=" inline-flex justify-center ">
           <Label text={"Password"} />
           <InputField
             type="Password"
@@ -51,7 +53,7 @@ const Form = () => {
             }
           />
         </div>
-        <div>
+        <div className="flex justify-center">
           <Button onClick={handleSubmit} text={"Log-in"} />
         </div>
       </form>
