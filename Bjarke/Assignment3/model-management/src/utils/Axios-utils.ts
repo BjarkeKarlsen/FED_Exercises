@@ -9,7 +9,7 @@ const getToken = () => {
 };
 
 export const SetupInterceptors = () => {
-  let navigate = useNavigate();
+  //let navigate = useNavigate();
 
   client.interceptors.response.use(
     function (response) {
@@ -18,7 +18,7 @@ export const SetupInterceptors = () => {
     (error) => {
       var status = error.response.status;
       if (status === 401) {
-        return navigate("/");
+        //return navigate("/");
       }
       return error;
     }

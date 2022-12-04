@@ -3,13 +3,13 @@ import { useQuery } from "react-query";
 import { request } from "../utils/Axios-utils";
 
 const fetchAllJobs = async () => {
-  const response = await request({ url: "job", method: "get" });
+  console.log("Fetching");
+  const response = await request({ url: "jobs", method: "get" });
   console.log(response.status);
-  if (response.status == 304) {
+  if (response.status === 304) {
     throw new Error("Problem fetching data");
   }
-  const job = await response.data;
-
+  console.log("This is fetching", console.log(response));
   return response;
 };
 

@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import InputField from "../InputFieldModal";
 import ModalHeader from "../ModalComponents/Header";
-import { useRegister } from "../../mutation/Model/postRegister";
+import { usePostModel } from "../../mutation/Model/PostModel";
 import type { ModelRegisterDto } from "../../../interfaces/Model";
 import Button from "../Button";
 import NumberField from "../NumberField";
@@ -26,10 +26,7 @@ const CreateModel = () => {
   const [comments, setComments] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const [sumbitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
-
-  const { mutate: register } = useRegister();
+  const { mutate: postModel } = usePostModel();
 
   const handleSubmit = () => {
     const model: ModelRegisterDto = {
@@ -51,7 +48,7 @@ const CreateModel = () => {
       comments: comments,
       password: password,
     };
-    register(model);
+    postModel(model);
   };
 
   return (

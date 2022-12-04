@@ -1,16 +1,14 @@
 import { useState } from "react";
 import InputField from "../InputField";
-import Heading from "../../Layout/Heading";
 import { ChangeEvent } from "react";
 import type { JobRegisterDto } from "../../../interfaces/Job";
-import { useRegister } from "../../mutation/Job/postRegister";
+import { useRegister } from "../../mutation/Job/PostJob";
 import ModalHeader from "../ModalComponents/Header";
 import { Label } from "../ModalComponents/Label";
 import Button from "../Button";
 import NumberField from "../NumberField";
 
 export default function CreateJob() {
-  const [jobId, setJobId] = useState<number>(0);
   const [customer, setCustomer] = useState("");
   const [startdate, setstartDate] = useState("");
   const [days, setDays] = useState<number>(0);
@@ -21,7 +19,6 @@ export default function CreateJob() {
 
   const handleSubmit = () => {
     const job: JobRegisterDto = {
-      jobid: jobId as number,
       customer: customer,
       startdate: startdate,
       days: days,
@@ -37,18 +34,6 @@ export default function CreateJob() {
         <ModalHeader text={"Create Job"} />
 
         <form className="flex flex-col justify-center">
-          {/* <div className=" inline-flex justify-between ">
-          <Label text={"Job id:"} />
-          <InputField
-            type="number"
-            required
-            placeholder="Job ID"
-            value={jobId}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setJobId(e.target.valueAsNumber)
-            }
-          />
-          </div> */}
           <div className=" inline-flex justify-between ">
             <Label text={"Customer"} />
             <InputField

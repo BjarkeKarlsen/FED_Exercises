@@ -1,9 +1,9 @@
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import { request } from "../../utils/Axios-utils";
 import { toast } from "react-toastify";
 import type { ModelRegisterDto } from "../../../interfaces/Model";
 
-export const register = async (data: ModelRegisterDto) => {
+export const postModel = async (data: ModelRegisterDto) => {
   return await request({
     url: `Models`,
     method: "POST",
@@ -11,9 +11,8 @@ export const register = async (data: ModelRegisterDto) => {
   });
 };
 
-export const useRegister = () => {
-  const queryClient = useQueryClient();
-  return useMutation(register, {
+export const usePostModel = () => {
+  return useMutation(postModel, {
     onSuccess: () => {
       toast.success(`Model created successfully`);
     },

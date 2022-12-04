@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import InputField from "../InputField";
 import Heading from "../../Layout/Heading";
-import { useRegister } from "../../mutation/Manager/postRegister";
+import { useRegister } from "../../mutation/Manager/PostManager";
 import type { ManagerRegisterDto } from "../../../interfaces/Manager";
 import { Label } from "../ModalComponents/Label";
 import Button from "../Button";

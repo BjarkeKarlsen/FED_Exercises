@@ -1,6 +1,5 @@
 import { ChangeEvent, useState } from "react";
 import InputField from "../InputField";
-import Heading from "../../Layout/Heading";
 import { useLogin } from "../../mutation/Account/Login";
 import type { AccountLoginDto } from "../../../interfaces/Account";
 import Button from "../Button";
@@ -9,8 +8,8 @@ const CreateModel = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [sumbitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
+  // const [sumbitted, setSubmitted] = useState(false);
+  // const [error, setError] = useState(false);
 
   const { mutate: login } = useLogin();
 

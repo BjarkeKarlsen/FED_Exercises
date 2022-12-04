@@ -1,4 +1,3 @@
-import Heading from "../Layout/Heading";
 import ManagerContent from "../Components/Management/ManagerContent";
 import GetManagerList from "../queries/Manager";
 

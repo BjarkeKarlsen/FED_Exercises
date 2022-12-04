@@ -1,9 +1,9 @@
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import { request } from "../../utils/Axios-utils";
 import { toast } from "react-toastify";
 import type { JobModel } from "../../../interfaces/Job";
 
-export const register = async (data: JobModel) => {
+export const jobAddModel = async (data: JobModel) => {
   return await request({
     url: `Jobs/${data.jobid}/model/${data.modelid}`,
     method: "POST",
@@ -11,9 +11,8 @@ export const register = async (data: JobModel) => {
   });
 };
 
-export const useRegister = () => {
-  const queryClient = useQueryClient();
-  return useMutation(register, {
+export const useJobAddModel = () => {
+  return useMutation(jobAddModel, {
     onSuccess: () => {
       toast.success(`Added model to job`);
     },
