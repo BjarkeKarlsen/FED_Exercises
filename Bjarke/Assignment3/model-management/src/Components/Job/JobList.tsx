@@ -7,7 +7,6 @@ import ModalCreateJob from "./ModalCreateJob";
 import type { Job } from "../../../interfaces/Job";
 
 const JobList = ({ jobList }: { jobList: Job[] }) => {
-  console.log("This is the joblist.job", jobList);
   const [showModal, setShowModal] = useState(false);
   return (
     <div>

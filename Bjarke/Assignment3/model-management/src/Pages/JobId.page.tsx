@@ -8,8 +8,6 @@ const JobsPage = () => {
   const { jobId } = useParams();
   const { data: jobsData, isLoading, isError, error } = GetJob(Number(jobId));
 
-  console.log("This is jobdata Id", jobsData);
-
   if (isLoading) {
     return <LoadingSpinner />;
   }

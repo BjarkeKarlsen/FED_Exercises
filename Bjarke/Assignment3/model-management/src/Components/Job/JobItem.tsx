@@ -24,16 +24,3 @@ const JobItem = ({ job }: { job: Job }) => {
 };
 
 export default JobItem;
-{
-  /* <div>
-<label>Customer</label>
-<p>{job.customer}</p>
-<p>{job.startdate}</p>
-<p>{job.days}</p>
-<p>{job.location}</p>
-<label>Start Date</label>
-<label>Date</label>
-<label>Location</label>
-<label>Comments</label>
-</div> */
-}

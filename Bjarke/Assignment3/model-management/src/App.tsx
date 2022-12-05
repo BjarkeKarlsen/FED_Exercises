@@ -1,31 +1,43 @@
 import "./styles/global.css";
-import { QueryClientProvider, QueryClient } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import Header from "./Layout/Header";
-import Meta from "./Layout/Meta";
-// import AuthProvider from "./utils/authprovider";
-// import { Admin } from "react-admin";
-import { ToastContainer } from "react-toastify";
 import { SetupInterceptors } from "./utils/Axios-utils";
 import "react-toastify/dist/ReactToastify.css";
-
-const queryClient = new QueryClient();
+import { Routes, Route } from "react-router-dom";
+import RequireAuth from "./Middelware/RequireAuth";
+import LoginPage from "./Pages/Login.page";
+import Manager from "./Pages/Manager.page";
+import Job from "./Pages/Job.page";
+import JobId from "./Pages/JobId.page";
+import Model from "./Pages/Model.page";
+import Unauthorized from "./Pages/Unauthorized";
+import Layout from "./Layout/Layout";
+import Missing from "./Pages/Missing.Page";
 
 function App() {
-  // const [token, setToken] = useState();
-  // if (!token) {
-  //   return element={<LoginPage setToken={setToken} />}/>;
-  // }
   SetupInterceptors();
   return (
-    <QueryClientProvider client={queryClient}>
-      {/* <Admin loginPage={LoginPage} authProvider={AuthProvider} /> */}
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {/*public routes */}
+          <Route path="login" element={<LoginPage />} />
+          <Route path="unauthorized" element={<Unauthorized />} />
 
-      <ToastContainer />
-      <Meta />
-      <Header />
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-    </QueryClientProvider>
+          {/*private routes */}
+          <Route element={<RequireAuth allowedRoles={["Model", "Manager"]} />}>
+            <Route path="job" element={<Job />} />
+            <Route path="job/:jobId" element={<JobId />} />
+          </Route>
+
+          <Route element={<RequireAuth allowedRoles={["Manager"]} />}>
+            <Route path="manager" element={<Manager />} />
+            <Route path="model" element={<Model />} />
+          </Route>
+
+          {/*catch all */}
+          <Route path="*" element={<Missing />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

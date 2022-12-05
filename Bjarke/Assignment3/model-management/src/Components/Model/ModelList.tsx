@@ -1,5 +1,5 @@
 const ModelList = ({ model }: { model: any }) => {
-  return <>sadas</>;
+  return <></>;
 };
 
 export default ModelList;

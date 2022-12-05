@@ -1,26 +1,51 @@
 import { useMutation } from "react-query";
 import { request } from "../../utils/Axios-utils";
 import { toast } from "react-toastify";
+import parseJwt from "../../utils/jwtParse";
+import useAuth from "../../Middelware/useAuth";
+
 import type { AccountLoginDto } from "../../../interfaces/Account";
+import { useContext } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export const login = async (data: AccountLoginDto) => {
+  localStorage.setItem("user", data.email);
+  localStorage.setItem("pwd", data.password);
   const response = await request({
     url: `account/login`,
     method: "POST",
     data: data,
   });
-  console.log(response.data);
-  localStorage.setItem("token", response.data.jwt);
+
   return response;
 };
 
 export const useLogin = () => {
+  const { setAuth } = useAuth();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = (location.state as any)?.from?.pathname || "/";
+
   return useMutation(login, {
-    onSuccess: () => {
-      toast.success(`Model created successfully`);
+    onSuccess: (account) => {
+      const accessToken = account.data.jwt;
+      const roles = parseJwt(account.data.jwt)[
+        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+      ];
+      localStorage.setItem("token", account.data.jwt);
+      localStorage.setItem("role", roles);
+
+      const user = localStorage.getItem("user");
+      const pwd = localStorage.getItem("pwd");
+      setAuth([user, pwd, roles, accessToken]);
     },
     onError: (error) => {
-      toast.error("Failed to create model");
+      toast.error("Failed to login");
+    },
+    onSettled: () => {
+      toast.success("Welcome");
+      navigate(from, { replace: true });
     },
   });
 };
