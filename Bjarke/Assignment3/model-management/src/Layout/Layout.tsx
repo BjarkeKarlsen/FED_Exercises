@@ -10,7 +10,7 @@ const Layout = () => {
       <Meta />
       <Header />
       <main>
-        <Outlet />{" "}
+        <Outlet />
       </main>
     </>
   );

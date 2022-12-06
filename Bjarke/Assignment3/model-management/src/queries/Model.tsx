@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { request } from "../utils/Axios-utils";
 
 const fetchAllModels = async () => {
-  const response = await request({ url: "model", method: "get" });
+  const response = await request({ url: "models", method: "get" });
   console.log(response.status);
   if (response.status === 304) {
     throw new Error("Problem fetching data");
@@ -13,7 +13,7 @@ const fetchAllModels = async () => {
 };
 
 const GetModelList = () => {
-  return useQuery("modelKey", fetchAllModels, {
+  return useQuery("modelsKey", fetchAllModels, {
     refetchOnWindowFocus: false,
   });
 };
