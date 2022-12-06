@@ -35,7 +35,6 @@ export const useLogin = () => {
         "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
       ];
       localStorage.setItem("token", account.data.jwt);
-      localStorage.setItem("role", roles);
 
       const user = localStorage.getItem("user");
       const pwd = localStorage.getItem("pwd");
