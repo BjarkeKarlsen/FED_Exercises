@@ -18,10 +18,13 @@ const JobItem = ({ job }: { job: Job }) => {
       <Heading text={"Jobs"} />
       <div className="border rounded border-grey-300 bg-white overflow-hidden shadow-lg flex p-4 justify-center">
         <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg content-center h-200 m-4  flex flex-col justify-center">
-          <Button
-            onClick={() => setShowModal(true)}
-            text={"Change Model To Job"}
-          />
+          {localStorage.getItem("role") == "Manager" ? (
+            <Button
+              onClick={() => setShowModal(true)}
+              text={"Change Model To Job"}
+            />
+          ) : null}
+
           <Button
             onClick={() => setShowModalExpense(true)}
             text={"Add Expense Job"}
