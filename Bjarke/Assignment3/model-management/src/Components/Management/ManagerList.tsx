@@ -2,7 +2,6 @@ import { ManagerRegisterDto } from "../../../interfaces/Manager";
 import ManagerItem from "./ManagerItem";
 
 const ManagerList = ({ managerData }: { managerData: any[] }) => {
-  console.log(managerData);
   return (
     <>
       {managerData?.map((manager: ManagerRegisterDto, index) => (

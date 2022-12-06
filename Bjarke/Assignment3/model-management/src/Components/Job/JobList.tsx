@@ -23,7 +23,6 @@ const JobList = ({ jobList }: { jobList: Job[] }) => {
         </div>
 
         <div className="flex flex-wrap justify-center">
-          {/* This maps out all workouts with their exercise as names */}
           {jobList?.map((job: any) => (
             <div
               key={job.jobId}
