@@ -7,6 +7,7 @@ import useAuth from "../../Middelware/useAuth";
 import type { AccountLoginDto } from "../../../interfaces/Account";
 import { useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { NewLineKind } from "typescript";
 
 export const login = async (data: AccountLoginDto) => {
   localStorage.setItem("user", data.email);

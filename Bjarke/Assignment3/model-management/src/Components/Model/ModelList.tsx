@@ -1,13 +1,14 @@
 import { ModelDto } from "../../../interfaces/Model";
 import ModelItem from "./ModelItem";
 
-const ModelList = ({ model }: { model: ModelDto[] }) => {
+const ModelList = ({ model }: { model: any[] }) => {
+  console.log(model);
   return (
     <>
-      {model?.map((modelItem: ModelDto, index) => (
+      {model?.map((modelItem: any, index: number) => (
         <div
           key={index}
-          className="rounded bg-white shadow-lg md:w-1/3 m-4 flex flex-col justify-center"
+          className="rounded bg-white shadow-lg  m-4 flex flex-col justify-start"
         >
           <ModelItem model={modelItem} />
         </div>

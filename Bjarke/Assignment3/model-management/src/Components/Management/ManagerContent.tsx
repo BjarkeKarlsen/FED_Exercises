@@ -17,7 +17,7 @@ const ManagerContent = ({ managerData }: { managerData: any }) => {
             <CreateManager />
           </Modal>
         </div>
-        <ManagerList managerData={managerData} />
+        <ManagerList managerData={managerData?.data} />
       </div>
     </>
   );

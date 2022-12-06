@@ -6,6 +6,7 @@ import Heading from "../../Layout/Heading";
 import ModelList from "./ModelList";
 
 const ModelContent = ({ model }: { model: any }) => {
+  console.log("ModelContent", model);
   const [showModal, setShowModal] = useState(false);
   return (
     <>
@@ -17,7 +18,7 @@ const ModelContent = ({ model }: { model: any }) => {
             <CreateModel />
           </Modal>
         </div>
-        <ModelList model={model} />
+        <ModelList model={model?.data} />
       </div>
     </>
   );

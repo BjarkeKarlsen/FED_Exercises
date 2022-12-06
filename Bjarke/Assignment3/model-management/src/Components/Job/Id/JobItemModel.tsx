@@ -7,9 +7,11 @@ import Modal from "../../ModalComponents/Modal";
 import ModalJobModel from "./ModalJobModel";
 import Button from "../../Button";
 import ModalAddExpense from "./ModalAddExpense";
+import useAuth from "../../../Middelware/useAuth";
 
 const JobItem = ({ job }: { job: Job }) => {
   Moment.locale("dk");
+  const { auth } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [showModalExpense, setShowModalExpense] = useState(false);
 
@@ -18,7 +20,7 @@ const JobItem = ({ job }: { job: Job }) => {
       <Heading text={"Jobs"} />
       <div className="border rounded border-grey-300 bg-white overflow-hidden shadow-lg flex p-4 justify-center">
         <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg content-center h-200 m-4  flex flex-col justify-center">
-          {localStorage.getItem("role") == "Manager" ? (
+          {auth[2] == "Manager" ? (
             <Button
               onClick={() => setShowModal(true)}
               text={"Change Model To Job"}

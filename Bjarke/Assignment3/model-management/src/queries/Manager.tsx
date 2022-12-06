@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { request } from "../utils/Axios-utils";
 
 const fetchAllManager = async () => {
-  const response = await request({ url: "manager", method: "get" });
+  const response = await request({ url: "managers", method: "get" });
   console.log(response.status);
   if (response.status === 304) {
     throw new Error("Problem fetching data");
@@ -13,7 +13,7 @@ const fetchAllManager = async () => {
 };
 
 const GetManagerList = () => {
-  return useQuery("managerKey", fetchAllManager, {
+  return useQuery("managersKey", fetchAllManager, {
     refetchOnWindowFocus: false,
   });
 };

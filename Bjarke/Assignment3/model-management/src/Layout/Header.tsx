@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { Navbar } from "flowbite-react";
 
@@ -24,39 +24,24 @@ const Header = () => {
         <Navbar.Toggle className="hover:text-green-500 md:hover:text-green-500" />
 
         <Navbar.Collapse>
-          <Navbar.Link
-            className="hover:text-green-500 md:hover:text-green-500"
-            href="/"
-          >
-            Home
+          <Navbar.Link className="hover:text-green-500 md:hover:text-green-500">
+            <Link to="/">Home</Link>
           </Navbar.Link>
 
-          <Navbar.Link
-            className="hover:text-green-500 md:hover:text-green-500"
-            href="/manager"
-          >
-            Manager
+          <Navbar.Link className="hover:text-green-500 md:hover:text-green-500">
+            <Link to="/manager">Manager</Link>
           </Navbar.Link>
 
-          <Navbar.Link
-            className="hover:text-green-500 md:hover:text-green-500"
-            href="/model"
-          >
-            Model
+          <Navbar.Link className="hover:text-green-500 md:hover:text-green-500">
+            <Link to="/model">Model</Link>
           </Navbar.Link>
 
-          <Navbar.Link
-            className="hover:text-green-500 md:hover:text-green-500"
-            href="/job"
-          >
-            Job
+          <Navbar.Link className="hover:text-green-500 md:hover:text-green-500">
+            <Link to="/job">Job</Link>
           </Navbar.Link>
 
-          <Navbar.Link
-            className="hover:text-green-500 md:hover:text-green-500"
-            href="/login"
-          >
-            Login
+          <Navbar.Link className="hover:text-green-500 md:hover:text-green-500">
+            <Link to="/manager">Login</Link>
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
@@ -65,6 +50,51 @@ const Header = () => {
 };
 
 export default Header;
+
+{
+  /* <ul className="flex flex-row">
+<li>
+  <Link
+    className="flex-row hover:text-green-500 md:hover:text-green-500 border-4"
+    to="/"
+  >
+    Home
+  </Link>
+</li>
+<li>
+  <Link
+    className="flex-row hover:text-green-500 md:hover:text-green-500"
+    to="/manager"
+  >
+    Manager
+  </Link>
+</li>
+<li>
+  <Link
+    className="flex-row hover:text-green-500 md:hover:text-green-500"
+    to="/model"
+  >
+    Model
+  </Link>
+</li>
+<li>
+  <Link
+    className="flex-row hover:text-green-500 md:hover:text-green-500"
+    to="/job"
+  >
+    Job
+  </Link>
+</li>
+<li>
+  <Link
+    className="flex-row hover:text-green-500 md:hover:text-green-500"
+    to="/login"
+  >
+    Login
+  </Link>
+</li>
+</ul> */
+}
 
 //    <Route path="/super-heroes">
 //           <SuperHeroesPage />
