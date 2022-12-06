@@ -23,12 +23,12 @@ const JobItem = ({ job }: { job: Job }) => {
               onClick={() => setShowModal(true)}
               text={"Change Model To Job"}
             />
-          ) : null}
-
-          <Button
-            onClick={() => setShowModalExpense(true)}
-            text={"Add Expense Job"}
-          />
+          ) : (
+            <Button
+              onClick={() => setShowModalExpense(true)}
+              text={"Add Expense Job"}
+            />
+          )}
 
           <h1>Job: {job.customer}</h1>
           <h2>Location: {job.location}</h2>

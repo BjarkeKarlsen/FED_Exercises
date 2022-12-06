@@ -5,9 +5,12 @@ import Modal from "../ModalComponents/BiggerModal";
 import JobItem from "./JobItem";
 import ModalCreateJob from "./ModalCreateJob";
 import type { Job } from "../../../interfaces/Job";
+import useAuth from "../../Middelware/useAuth";
 
 const JobList = ({ jobList }: { jobList: Job[] }) => {
   const [showModal, setShowModal] = useState(false);
+  const { auth } = useAuth();
+  console.log("auth: ", auth);
   return (
     <div>
       <Heading text={"Jobs"} />
@@ -36,21 +39,3 @@ const JobList = ({ jobList }: { jobList: Job[] }) => {
 };
 
 export default JobList;
-
-{
-  /* <Button
-                text={"Add To Calendar"}
-                onClick={() => {
-                  setShowAddToCalendarModal(true);
-                  setIdPassToModal(meal.id);
-                }}
-                key={undefined}
-              />
-
-              <DeleteButton
-                text={"Delete"}
-                onClick={() => {
-                  handleDeleteButtonClick(meal.id);
-                }}
-              /> */
-}

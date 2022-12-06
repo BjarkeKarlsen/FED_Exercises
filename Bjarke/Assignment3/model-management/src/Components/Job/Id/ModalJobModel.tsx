@@ -27,7 +27,7 @@ const ModalJobModel = ({ jobId }: { jobId: number }) => {
   }
 
   const handleMenu = (model: string, index: number) => {
-    setModelId(index);
+    setModelId(index + 1);
     setModelName(model);
     setOpen(false);
   };
@@ -35,15 +35,15 @@ const ModalJobModel = ({ jobId }: { jobId: number }) => {
   const handleAddModelOnclick = () => {
     const workoutDto: JobModelDto = {
       jobId: jobId,
-      modelId: 1,
+      modelId: modelId,
     };
-
+    console.log("workoutdto", workoutDto);
     jobAddModel(workoutDto);
   };
   const handleDeleteModelOnclick = () => {
     const workoutDto: JobModelDto = {
       jobId: jobId,
-      modelId: 1,
+      modelId: modelId,
     };
     jobDeleteModel(workoutDto);
   };

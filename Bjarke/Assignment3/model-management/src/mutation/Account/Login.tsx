@@ -21,7 +21,7 @@ export const login = async (data: AccountLoginDto) => {
 };
 
 export const useLogin = () => {
-  const { setAuth } = useAuth();
+  const { auth, setAuth } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -38,6 +38,7 @@ export const useLogin = () => {
 
       const user = localStorage.getItem("user");
       const pwd = localStorage.getItem("pwd");
+
       setAuth([user, pwd, roles, accessToken]);
     },
     onError: (error) => {
@@ -45,6 +46,7 @@ export const useLogin = () => {
     },
     onSettled: () => {
       toast.success("Welcome");
+      console.log(auth);
       navigate(from, { replace: true });
     },
   });
