@@ -1,18 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Prism.Mvvm;
 namespace Summer2022.Models;
 
-internal class PackingList : BindableBase
+public class PackingList : BindableBase
 {
     public PackingList()
     {
-        _items = new();
+        Items = new();
     }
     public PackingList(string? id, string? name)
     {
         Id = id;
         Name = name;
-        _items = new();
+        Items = new();
     }
 
     public PackingList? Clone()
@@ -23,15 +24,15 @@ internal class PackingList : BindableBase
     #region Privates Fields
     string _id;
     string? _name;
-    List<Item> _items;
+    ObservableCollection<Item> _items;
 
     #endregion
 
     #region Publics Fields
-    public string? Id { get { return _id; } set { SetProperty(ref _id, value); } }
-    public string? Name { get { return _name; } set { SetProperty(ref _name, value); } }
+    public string? Id { get => _id; set => SetProperty(ref _id, value); }
+    public string? Name { get => _name;  set => SetProperty(ref _name, value); }
 
-    public List<Item> Items { get { return _items; } set { SetProperty(ref _items, value); } }
+    public ObservableCollection<Item> Items { get => _items;  set => SetProperty(ref _items, value);  }
 
     #endregion
 }
