@@ -7,15 +7,18 @@ export function ZipCountry() {
   const [country, setCountry] = useState("");
   const [weatherData, setWeatherData] = useState();
 
+  // array of objects
   const initialGeo = {
     lat: 56.162939,
     lon: 10.203921,
   };
 
+  //initialise to initialgeo as default
   const [geo, setGeo] = useState(initialGeo);
 
   const apiKey = "b8642f6a6885b73b64fe78b8c6e4631e";
 
+  // useEffect er en sideeffekt, som kører efter man har opdateret state
   useEffect(
     () => {
       const fetchData = async () => {

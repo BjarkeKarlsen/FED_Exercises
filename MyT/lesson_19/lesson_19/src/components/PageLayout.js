@@ -11,3 +11,4 @@ export function PageLayout() {
     </>
   );
 }
+//1The Outlet component alone allows nested routes to render their element content out and anything else the layout route is rendering, i.e. navbars, sidebars, specific layout components, etc.
