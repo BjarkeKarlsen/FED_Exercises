@@ -1,0 +1,64 @@
+﻿<Window x:Class="eksamenssaet2022.Views.ViewPackingListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:eksamenssaet2022.Views"
+        mc:Ignorable="d"
+        Title="ViewPackingList" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="185*"/>
+        </Grid.RowDefinitions>
+        <Label Content="{Binding Name}"
+               HorizontalAlignment="Center"
+               Margin="0,1,0,1"
+               FontSize="20" Width="10"
+               Grid.Row="0"/>
+
+        <DataGrid Grid.Row="1"
+                      Margin="50,30,50,100"
+                   Name="DataGrid_viewPackingList"
+         
+                  ItemsSource="{Binding Path=ViewPackingLists}"
+                  SelectedItem="{Binding Path=ViewCurrentPackingList}"
+                  SelectedIndex ="{Binding Path=ViewCurrentIndex}"
+                  IsSynchronizedWithCurrentItem="True"
+                  CanUserAddRows="False" 
+                   CanUserDeleteRows="False" 
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn 
+                    Header="Item"
+                    CanUserResize="False"
+                    Binding="{Binding Path=Item}" 
+                />
+                <DataGridTextColumn 
+                    Header="Quantity" 
+                    CanUserResize="False"     
+                    Binding="{Binding Path=Amount}"
+                />
+                <DataGridCheckBoxColumn 
+                    Header="Packed"
+                    IsThreeState="True"
+                    Binding="{Binding IsPacked}"
+                   
+                />
+                
+                </DataGrid.Columns>
+            
+                       
+            
+        </DataGrid>
+        <Button Content="Save"
+                Grid.Row="1"
+                VerticalAlignment="Bottom"
+                FontSize="20"
+                Margin="340,120,340,50"
+                />
+
+    </Grid>
+</Window>
