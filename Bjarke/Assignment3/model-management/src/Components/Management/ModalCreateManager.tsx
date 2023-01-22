@@ -22,6 +22,7 @@ const CreateManager = () => {
       firstName: firstname,
       lastName: lastname,
     };
+    register(manager);
   };
   return (
     <div className="border rounded border-grey-400 bg-white overflow-hidden shadow-lg flex p-4 justify-center">

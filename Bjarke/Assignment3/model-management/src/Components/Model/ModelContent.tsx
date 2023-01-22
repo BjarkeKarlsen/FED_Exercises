@@ -13,13 +13,12 @@ const ModelContent = ({ model }: { model: any }) => {
       <Heading text={"Model"} />
       <div className="border rounded border-grey-300 bg-white overflow-hidden shadow-lg flex flex-col p-4">
         <TextButton onClick={() => setShowModal(true)} text={"Create Model"} />
-        <div className="text-3 font-bold underline ">
-          <Modal IsVisible={showModal} onClose={() => setShowModal(false)}>
-            <CreateModel />
-          </Modal>
-        </div>
-        <ModelList model={model?.data} />
+        <div className="text-3 font-bold underline "></div>
+        <Modal IsVisible={showModal} onClose={() => setShowModal(false)}>
+          <CreateModel />
+        </Modal>
       </div>
+      <ModelList model={model?.data} />
     </>
   );
 };

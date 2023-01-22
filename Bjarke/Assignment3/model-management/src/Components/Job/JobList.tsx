@@ -15,7 +15,7 @@ const JobList = ({ jobList }: { jobList: Job[] }) => {
     <div>
       <Heading text={"Jobs"} />
       <div className="border rounded border-grey-300 bg-white overflow-hidden shadow-lg flex flex-col p-4">
-        <TextButton onClick={() => setShowModal(true)} text={"Create Model"} />
+        <TextButton onClick={() => setShowModal(true)} text={"Create Job"} />
         <div className="text-3 font-bold underline ">
           <Modal IsVisible={showModal} onClose={() => setShowModal(false)}>
             <ModalCreateJob />
@@ -26,7 +26,7 @@ const JobList = ({ jobList }: { jobList: Job[] }) => {
           {jobList?.map((job: any) => (
             <div
               key={job.jobId}
-              className="rounded bg-white shadow-lg md:w-1/3 m-4 flex flex-col justify-center"
+              className="rounded bg-white shadow-lg  m-4 flex flex-wrap justify-center"
             >
               <JobItem job={job} />
             </div>

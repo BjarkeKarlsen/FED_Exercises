@@ -4,7 +4,6 @@ import GetManagerList from "../queries/Manager";
 
 const Mananger = () => {
   const { data: managerData, isLoading, isError, error } = GetManagerList();
-  console.log("manager ", managerData);
   if (isLoading) {
     return <LoadingSpinner />;
   }

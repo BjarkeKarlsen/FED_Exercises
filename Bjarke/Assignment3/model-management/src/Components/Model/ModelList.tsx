@@ -8,7 +8,7 @@ const ModelList = ({ model }: { model: any[] }) => {
       {model?.map((modelItem: any, index: number) => (
         <div
           key={index}
-          className="rounded bg-white shadow-lg  m-4 flex flex-col justify-start"
+          className="rounded bg-white shadow-lg  m-4 flex flex-col justify-start "
         >
           <ModelItem model={modelItem} />
         </div>

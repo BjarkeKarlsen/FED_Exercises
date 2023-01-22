@@ -1,4 +1,4 @@
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { request } from "../../utils/Axios-utils";
 import { toast } from "react-toastify";
 import type { JobRegisterDto } from "../../../interfaces/Job";
@@ -12,12 +12,16 @@ export const register = async (data: JobRegisterDto) => {
 };
 
 export const useRegister = () => {
+  const queryClient = useQueryClient();
   return useMutation(register, {
     onSuccess: () => {
       toast.success(`Job created successfully`);
     },
     onError: (error) => {
       toast.error("Failed to create Job");
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries("jobsKey");
     },
   });
 };

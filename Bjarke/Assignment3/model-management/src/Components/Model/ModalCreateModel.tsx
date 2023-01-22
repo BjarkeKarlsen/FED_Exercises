@@ -133,7 +133,7 @@ const CreateModel = () => {
             <InputField
               type="text"
               required
-              placeholder="email@gmail.com"
+              placeholder="8000"
               value={zip}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setZip(e.target.value)

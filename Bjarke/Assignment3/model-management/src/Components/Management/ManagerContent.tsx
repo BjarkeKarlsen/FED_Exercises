@@ -11,13 +11,18 @@ const ManagerContent = ({ managerData }: { managerData: any }) => {
     <>
       <Heading text={"Manager"} />
       <div className="border rounded border-grey-300 bg-white overflow-hidden shadow-lg flex flex-col p-4">
-        <TextButton onClick={() => setShowModal(true)} text={"Create Model"} />
+        <TextButton
+          onClick={() => setShowModal(true)}
+          text={"Create Manager"}
+        />
         <div className="text-3 font-bold underline ">
           <Modal IsVisible={showModal} onClose={() => setShowModal(false)}>
             <CreateManager />
           </Modal>
         </div>
-        <ManagerList managerData={managerData?.data} />
+        <div className="flex flex-wrap">
+          <ManagerList managerData={managerData?.data} />
+        </div>
       </div>
     </>
   );

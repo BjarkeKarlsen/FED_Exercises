@@ -7,7 +7,7 @@ const ManagerList = ({ managerData }: { managerData: any[] }) => {
       {managerData?.map((manager: ManagerRegisterDto, index) => (
         <div
           key={index}
-          className="rounded bg-white shadow-lg md:w-1/3 m-4 flex flex-col justify-center"
+          className="rounded bg-white shadow-lg  m-4 flex flex-col justify-center md:w-1/3"
         >
           <ManagerItem manager={manager} />
         </div>

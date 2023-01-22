@@ -25,6 +25,5 @@ export const GetModelJobs = (id: number) => {
         return undefined;
       }
     },
-    refetchInterval: 5000,
   });
 };

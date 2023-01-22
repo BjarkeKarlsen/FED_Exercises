@@ -14,14 +14,14 @@ const ModalJobModel = ({ jobId }: { jobId: number }) => {
   const [textValue, setTextValue] = useState<string>("");
 
   const handleAddModelOnclick = () => {
-    const workoutDto: ExpenseDto = {
+    const expenseDto: ExpenseDto = {
       modelId: modelId,
       jobId: jobId,
       date: date,
       text: textValue,
       amount: amount,
     };
-    expense(workoutDto);
+    expense(expenseDto);
   };
 
   return (
