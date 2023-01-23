@@ -5,7 +5,7 @@ import type { BoardGameDto } from "../../../interfaces/BoardGame";
 import {
   usePostBoardGame,
   postBoardGame,
-} from "../../mutation/Job/PostBoardGame";
+} from "../../mutation/BoardGames/PostBoardGame";
 import ModalHeader from "../ModalComponents/Header";
 import { Label } from "../ModalComponents/Label";
 import Button from "../Button";
@@ -47,7 +47,7 @@ export default function CreateBoardGame() {
   return (
     <div className="border rounded border-grey-400 bg-white overflow-hidden shadow-lg flex p-4 justify-center">
       <div className="flex flex-col justify-center ">
-        <ModalHeader text={"Create Job"} />
+        <ModalHeader text={"Boardgame Job"} />
 
         <form className="flex flex-col justify-center">
           <div className=" inline-flex justify-between ">

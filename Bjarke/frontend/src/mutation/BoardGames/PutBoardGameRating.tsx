@@ -2,13 +2,17 @@ import { useMutation, useQueryClient } from "react-query";
 import { request } from "../../utils/Axios-utils";
 import { toast } from "react-toastify";
 
-import { BoardGame } from "../../../interfaces/BoardGame";
+import { BoardGameRateDto, BoardGame } from "../../../interfaces/BoardGame";
 
-export const boardGameUpdateRating = async (data: BoardGame) => {
+export const boardGameUpdateRating = async (game: BoardGame) => {
+  // const data: BoardGameRateDto = {
+  //   rating: game.rating,
+  //   countRatings: game.countRatings,
+  // };
   return await request({
-    url: `boardGames/${data.id}}`,
+    url: `boardGames/${game.id}`,
     method: "PUT",
-    data: data,
+    data: game,
   });
 };
 
@@ -16,10 +20,10 @@ export const useBoardGameUpdateRating = () => {
   const queryClient = useQueryClient();
   return useMutation(boardGameUpdateRating, {
     onSuccess: () => {
-      toast.success(`Added model to job`);
+      toast.success(`Borrow Status updated`);
     },
     onError: (error) => {
-      toast.error("Failed to add model to job");
+      toast.error("Failed to update Borrow Status");
     },
     onSettled: () => {
       queryClient.invalidateQueries("jobsKey");
