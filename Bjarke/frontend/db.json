@@ -1,0 +1,49 @@
+{
+  "boardGames": [
+    {
+      "id": 1,
+      "name": "Skak",
+      "description": "Spillet foregår … ",
+      "publicationYear": "600",
+      "acquisitionDate": "2023-01-06",
+      "playersMin": 2,
+      "playersMax": 2,
+      "playTime": "1 - 4",
+      "minimumAge": "6",
+      "countAvailable": 4,
+      "countInUse": 2,
+      "rating": 4,
+      "countRatings": 2
+    },
+    {
+      "id": 2,
+      "name": "Ludo",
+      "description": "Vinderen er den …",
+      "publicationYear": "1896",
+      "acquisitionDate": "2023-01-02",
+      "playersMin": 2,
+      "playersMax": 2,
+      "playTime": "½ time",
+      "minimumAge": "5",
+      "countAvailable": 2,
+      "countInUse": 0,
+      "rating": 3,
+      "countRatings": 1
+    },
+    {
+      "name": "sdkasdas",
+      "description": "",
+      "publicationYear": "",
+      "acquisitionDate": "",
+      "playersMin": 0,
+      "playersMax": 0,
+      "playTime": "",
+      "minimumAge": "",
+      "countAvailable": 0,
+      "countInUse": 0,
+      "rating": 0,
+      "countRatings": 0,
+      "id": 3
+    }
+  ]
+}
